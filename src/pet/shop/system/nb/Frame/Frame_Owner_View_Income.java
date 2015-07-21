@@ -8,7 +8,6 @@ package pet.shop.system.nb.Frame;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 import pet.shop.system.nb.Connect;
 import pet.shop.system.nb.Owner;
@@ -17,17 +16,28 @@ import pet.shop.system.nb.Owner;
  *
  * @author User
  */
-public class Frame_Owner_View_Pet_Seen extends javax.swing.JFrame {
+public class Frame_Owner_View_Income extends javax.swing.JFrame {
 private Connection conn=null;
 private PreparedStatement pst=null;
 private ResultSet rs=null;
     /**
-     * Creates new form Frame_Owner_View_Pet_Seen
+     * Creates new form Frame_Owner_View_Profit
      */
-    public Frame_Owner_View_Pet_Seen() {
+    public Frame_Owner_View_Income() {
         initComponents();
+        conn=Connect.connectDB();
+        updateJTable();
     }
 
+    public void updateJTable(){  
+        try{
+            pst=conn.prepareStatement(Owner.viewProfitReport());
+            rs= pst.executeQuery();
+            jTable_Income.setModel(DbUtils.resultSetToTableModel(rs));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,34 +48,14 @@ private ResultSet rs=null;
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable_Pet_Seen = new javax.swing.JTable();
-
-        jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jTable_Income = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
-        jLabel2.setText("Number of pets vet seen");
+        jLabel1.setText("Income report");
 
-        jTable_Pet_Seen.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_Income.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -73,10 +63,10 @@ private ResultSet rs=null;
                 {null, null, null, null}
             },
             new String [] {
-                "Vet Name", "Dog", "Cat", "Rabbit","Lizard","Bird"
+                "Date", "Species", "Amount", "Staff"
             }
         ));
-        jScrollPane1.setViewportView(jTable_Pet_Seen);
+        jScrollPane1.setViewportView(jTable_Income);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,39 +75,23 @@ private ResultSet rs=null;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 528, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        conn=Connect.connectDB();
-        updateJTable();
-    }//GEN-LAST:event_formWindowOpened
-
-    public void updateJTable(){  
-        try{
-            pst=conn.prepareStatement(Owner.viewVetNumberOfPetSeen());
-            rs= pst.executeQuery();
-            jTable_Pet_Seen.setModel(DbUtils.resultSetToTableModel(rs));
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
     /**
      * @param args the command line arguments
      */
@@ -135,29 +109,28 @@ private ResultSet rs=null;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Frame_Owner_View_Pet_Seen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame_Owner_View_Income.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Frame_Owner_View_Pet_Seen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame_Owner_View_Income.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Frame_Owner_View_Pet_Seen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame_Owner_View_Income.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Frame_Owner_View_Pet_Seen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame_Owner_View_Income.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Frame_Owner_View_Pet_Seen().setVisible(true);
+                new Frame_Owner_View_Income().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable_Pet_Seen;
+    private javax.swing.JTable jTable_Income;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,6 +16,7 @@ import pet.shop.system.nb.Pet.Pet;
  */
 public class Customer_Member extends Customer_Normal{
     private Pet pet;
+    private static double discount=0.85;
     
     public Customer_Member(String firstName, String lastName, String address, String contact, 
             String email, String username, String password,String petName,String age, String weight,
@@ -36,15 +37,19 @@ public class Customer_Member extends Customer_Normal{
         return pet.getWeight();
     }
     
-    public String getPetSpecies(){
-        return pet.getSpecies().toString();
-    }
-    
     public String getPetGender(){
         return pet.getGender().toString();
     }
     
     public String getPetDoe(){
         return pet.getDoe().toString();
+    }
+    
+    public void setDiscount(double discount){
+        this.discount=discount;
+    }
+    
+    public static double getDiscount(){
+        return discount;
     }
 }

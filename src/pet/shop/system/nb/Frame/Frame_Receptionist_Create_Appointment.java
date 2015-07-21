@@ -78,7 +78,6 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         cb_time_end = new javax.swing.JComboBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
         cb_pet_gender = new javax.swing.JComboBox();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -141,8 +140,6 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
 
         cb_time_end.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11 am", "12 pm", "1 pm", "2 pm","3 pm","4 pm","5 pm","6 pm","7 pm" }));
 
-        jCheckBox1.setText("Member");
-
         cb_pet_gender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male","Female" }));
 
         jLabel15.setText("Gender");
@@ -184,45 +181,37 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                         .addComponent(cb_domestic)
                         .addGap(18, 18, 18)
                         .addComponent(cb_exotic)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE))
                     .addComponent(cb_species, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cb_pet_gender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(cb_day, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel10))
+                            .addGap(12, 12, 12)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jdc_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cb_time_start, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cb_time_end, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btn_done_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                                .addComponent(btn_done_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(cb_vet, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(139, 139, 139))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cb_day, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel10))
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jdc_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cb_time_start, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cb_time_end, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jLabel9)
+                                .addGap(24, 24, 24)
+                                .addComponent(cb_vet, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,10 +224,14 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                                 .addComponent(jLabel2)
                                 .addGap(55, 55, 55)
                                 .addComponent(jLabel4)
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel11)
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel5))
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(et_owner_contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(et_owner_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -266,14 +259,10 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                                         .addGap(18, 18, 18)
                                         .addComponent(et_owner_address, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, Short.MAX_VALUE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(et_owner_contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel9)
-                                        .addComponent(cb_vet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(et_owner_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(cb_vet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(56, 56, 56)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(et_owner_pet_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8))
@@ -284,15 +273,14 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(cb_species, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(btn_done_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1))))
+                                    .addComponent(jLabel12))))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(cb_pet_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cb_pet_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_done_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(390, Short.MAX_VALUE)
+                        .addContainerGap(379, Short.MAX_VALUE)
                         .addComponent(jLabel7)))
                 .addContainerGap())
         );
@@ -309,12 +297,12 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                     "cust_contact="+et_owner_contact.getText()+
                     "cust_email="+et_owner_email.getText()+
                     "pet_name="+et_owner_pet_name.getText()+
-                    "pet_species"+cb_species.getSelectedItem().toString()+
-                    "pet_doe"+ Enum_Domestic_Exotic.Domestic.toString()+
-                    "vet_name"+cb_vet.getSelectedItem().toString()+
-                    "appointment_date"+obDataFormat.format(jdc_appointment.getDate())+
-                    "appointment_time_start"+cb_time_start.getSelectedItem().toString()+
-                    "appointment_time_start"+cb_time_end.getSelectedItem().toString()+
+                    "pet_species="+cb_species.getSelectedItem().toString()+
+                    "pet_doe="+ Enum_Domestic_Exotic.Domestic.toString()+
+                    "vet_name="+cb_vet.getSelectedItem().toString()+
+                    "appointment_date="+obDataFormat.format(jdc_appointment.getDate())+
+                    "appointment_time_start="+cb_time_start.getSelectedItem().toString()+
+                    "appointment_time_start="+cb_time_end.getSelectedItem().toString()+
                     "WHERE ID="+id_selected;
                 query(sql);
             }else{
@@ -324,12 +312,12 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                     "cust_contact="+et_owner_contact.getText()+
                     "cust_email="+et_owner_email.getText()+
                     "pet_name="+et_owner_pet_name.getText()+
-                    "pet_species"+cb_species.getSelectedItem().toString()+
-                    "pet_doe"+ Enum_Domestic_Exotic.Exotic.toString()+
-                    "vet_name"+cb_vet.getSelectedItem().toString()+
-                    "appointment_date"+obDataFormat.format(jdc_appointment.getDate())+
-                    "appointment_time_start"+cb_time_start.getSelectedItem().toString()+
-                    "appointment_time_start"+cb_time_end.getSelectedItem().toString()+
+                    "pet_species="+cb_species.getSelectedItem().toString()+
+                    "pet_doe="+ Enum_Domestic_Exotic.Exotic.toString()+
+                    "vet_name="+cb_vet.getSelectedItem().toString()+
+                    "appointment_date="+obDataFormat.format(jdc_appointment.getDate())+
+                    "appointment_time_start="+cb_time_start.getSelectedItem().toString()+
+                    "appointment_time_start="+cb_time_end.getSelectedItem().toString()+
                     "WHERE ID="+id_selected;
                 query(sql);
             }
@@ -357,6 +345,9 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                     jdc_appointment.getDate(), cb_time_start.getSelectedItem().toString());
                 insertToTable(Enum_Domestic_Exotic.Domestic.toString(),cb_species.getSelectedItem().toString());
                 JOptionPane.showMessageDialog(null, "Appointment saved.");
+                
+                Frame_Receptionist_Payout fr=new Frame_Receptionist_Payout();
+                fr.setVisible(true);
             }else if (cb_exotic.isSelected()){
                 id++;
                 Appointment appointment= new Appointment(id,et_owner_first_name.getText(), et_owner_last_name.getText(), 
@@ -366,6 +357,9 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                     jdc_appointment.getDate(), cb_time_start.getSelectedItem().toString());
                 insertToTable(Enum_Domestic_Exotic.Exotic.toString(),cb_species.getSelectedItem().toString());  
                 JOptionPane.showMessageDialog(null, "Appointment saved.");
+                
+                Frame_Receptionist_Payout fr=new Frame_Receptionist_Payout();
+                fr.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null,"Error creating appointment.");
             }
@@ -407,7 +401,7 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
         }
          
         if(isEdit==true){loadData();}
-         cb_day.addActionListener(new ActionListener() {
+        cb_day.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 switch(cb_day.getSelectedItem().toString()){
@@ -494,6 +488,8 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
             e.printStackTrace();
         }
     }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -546,7 +542,6 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
     private javax.swing.JTextField et_owner_first_name;
     private javax.swing.JTextField et_owner_last_name;
     private javax.swing.JTextField et_owner_pet_name;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

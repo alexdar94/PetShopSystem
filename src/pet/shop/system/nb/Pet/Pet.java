@@ -38,6 +38,8 @@ public class Pet {
         this.doe=doe;
     }
     
+    public static double getCharge(){return 100;}
+    
     public String getName() {
         return name;
     }

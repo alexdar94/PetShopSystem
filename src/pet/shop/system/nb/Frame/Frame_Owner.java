@@ -118,7 +118,8 @@ public class Frame_Owner extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_view_pet_overnightMouseClicked
 
     private void btn_view_incomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_incomeMouseClicked
-        // TODO add your handling code here:
+        Frame_Owner_View_Income fr=new Frame_Owner_View_Income();
+        fr.setVisible(true);
     }//GEN-LAST:event_btn_view_incomeMouseClicked
 
     private void btn_view_pet_seenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_pet_seenMouseClicked
