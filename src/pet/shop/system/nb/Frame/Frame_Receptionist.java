@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 import pet.shop.system.nb.Connect;
 
@@ -27,7 +28,8 @@ ResultSet rs=null;
     public Frame_Receptionist() {
         initComponents();
         conn=Connect.connectDB();
-        updateJTable();
+        updateJTable(jTable_receptionist_appointment);
+        updateJTable(jTable_boarding);
     }
 
     /**
@@ -54,7 +56,7 @@ ResultSet rs=null;
         btn_boardingService_edit = new javax.swing.JButton();
         btn_boardingService_cancel = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable_boarding = new javax.swing.JTable();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -100,7 +102,7 @@ ResultSet rs=null;
                 {null, null, null, null}
             },
             new String [] {
-                "ID","Start Time","End Time", "Customer Name", "Pet Name", "Species","Vet"
+                "ID","Date","Start Time","End Time", "Customer Name", "Pet Name", "Species","Vet"
             }
         ));
         jTable_receptionist_appointment.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -185,8 +187,13 @@ ResultSet rs=null;
 
         btn_boardingService_cancel.setText("Cancel Boarding Service");
         btn_boardingService_cancel.setEnabled(false);
+        btn_boardingService_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_boardingService_cancelMouseClicked(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_boarding.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -197,7 +204,12 @@ ResultSet rs=null;
                 "ID", "Date", "Customer Name", "Pet Name", "Species"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jTable_boarding.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable_boardingMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable_boarding);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -251,13 +263,11 @@ ResultSet rs=null;
     }//GEN-LAST:event_btn_register_customerMouseClicked
 
     private void jTable_receptionist_appointmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_receptionist_appointmentMouseClicked
-        // TODO add your handling code here:
         btn_appointment_edit.setEnabled(true);
         btn_appointment_cancel.setEnabled(true);
     }//GEN-LAST:event_jTable_receptionist_appointmentMouseClicked
 
     private void btn_appointment_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_appointment_cancelMouseClicked
-        // TODO add your handling code here:
         int row=jTable_receptionist_appointment.getSelectedRow();
         Frame_Receptionist_Create_Appointment fca=new Frame_Receptionist_Create_Appointment();
         String id=jTable_receptionist_appointment.getModel().getValueAt(row, 0).toString();
@@ -265,8 +275,8 @@ ResultSet rs=null;
         try{
             pst=conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null,"Appointment cancel");
-            updateJTable();
+            JOptionPane.showMessageDialog(null,"Appointment canceled");
+            updateJTable(jTable_receptionist_appointment);
         }catch(Exception e){
 
         }
@@ -277,7 +287,6 @@ ResultSet rs=null;
         int row=jTable_receptionist_appointment.getSelectedRow();
         Frame_Receptionist_Create_Appointment fca=new Frame_Receptionist_Create_Appointment();
         String id=jTable_receptionist_appointment.getModel().getValueAt(row, 0).toString();
-        JOptionPane.showMessageDialog(null,id+"");
         fca.setID(id);
         fca.setVisible(true);
     }//GEN-LAST:event_btn_appointment_editMouseClicked
@@ -296,17 +305,42 @@ ResultSet rs=null;
     }//GEN-LAST:event_btn_boardingService_newMouseClicked
 
     private void btn_boardingService_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_boardingService_editMouseClicked
-        // TODO add your handling code here:
+        int row=jTable_boarding.getSelectedRow();
+        Frame_Receptionist_Boarding_Service frbs=new Frame_Receptionist_Boarding_Service();
+        String id=jTable_boarding.getModel().getValueAt(row, 0).toString();
+        frbs.setID(id);
+        frbs.setVisible(true);
     }//GEN-LAST:event_btn_boardingService_editMouseClicked
 
-    public void updateJTable(){  
-        String sql="SELECT ID,appointment_time_start,appointment_time_end,cust_first_name,pet_name,pet_species,vet_name FROM AppointmentTable";
+    private void jTable_boardingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_boardingMouseClicked
+        btn_boardingService_edit.setEnabled(true);
+        btn_boardingService_cancel.setEnabled(true);
+    }//GEN-LAST:event_jTable_boardingMouseClicked
+
+    private void btn_boardingService_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_boardingService_cancelMouseClicked
+        int row=jTable_boarding.getSelectedRow();
+        Frame_Receptionist_Boarding_Service frbs=new Frame_Receptionist_Boarding_Service();
+        String id=jTable_boarding.getModel().getValueAt(row, 0).toString();
+        String sql="DELETE * FROM BoardingServiceTable WHERE ID="+id;
         try{
             pst=conn.prepareStatement(sql);
-            rs= pst.executeQuery();
-            jTable_receptionist_appointment.setModel(DbUtils.resultSetToTableModel(rs));
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Boarding service canceled");
+            updateJTable(jTable_boarding);
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Error");
+
+        }
+    }//GEN-LAST:event_btn_boardingService_cancelMouseClicked
+
+    public void updateJTable(JTable jtable){  
+        String sql="SELECT ID,appointment_date,appointment_time_start,appointment_time_end,cust_first_name,pet_name,pet_species,vet_name FROM AppointmentTable";
+        String sql1="SELECT ID,appointment_date,cust_first_name,pet_name,pet_species FROM BoardingServiceTable";
+        try{
+            pst=(jtable==jTable_receptionist_appointment)?conn.prepareStatement(sql):conn.prepareStatement(sql1);
+            rs= pst.executeQuery();
+            jtable.setModel(DbUtils.resultSetToTableModel(rs));
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
     /**
@@ -359,7 +393,7 @@ ResultSet rs=null;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable_boarding;
     private javax.swing.JTable jTable_receptionist_appointment;
     // End of variables declaration//GEN-END:variables
 }

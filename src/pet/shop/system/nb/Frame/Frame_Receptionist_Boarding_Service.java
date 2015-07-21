@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import pet.shop.system.nb.Connect;
 import pet.shop.system.nb.Enum.Enum_Domestic_Exotic;
 
 /**
@@ -40,7 +41,7 @@ private int id;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_done_appointment = new javax.swing.JButton();
+        btn_done_boarding = new javax.swing.JButton();
         jdc_appointment = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         et_owner_last_name = new javax.swing.JTextField();
@@ -64,11 +65,16 @@ private int id;
         cb_exotic = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        btn_done_appointment.setText("Done");
-        btn_done_appointment.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_done_boarding.setText("Done");
+        btn_done_boarding.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_done_appointmentMouseClicked(evt);
+                btn_done_boardingMouseClicked(evt);
             }
         });
 
@@ -111,7 +117,11 @@ private int id;
                 .addComponent(jLabel6)
                 .addGap(81, 81, 81)
                 .addComponent(jdc_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_done_boarding, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -133,7 +143,7 @@ private int id;
                             .addComponent(cb_domestic)
                             .addGap(18, 18, 18)
                             .addComponent(cb_exotic)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(et_owner_contact)
@@ -146,18 +156,18 @@ private int id;
                                 .addComponent(cb_pet_gender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(56, 56, 56)))
                     .addComponent(jCheckBox1)
-                    .addGap(48, 48, 48)
-                    .addComponent(btn_done_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                    .addGap(173, 173, 173)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(393, Short.MAX_VALUE)
+                .addContainerGap(385, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jdc_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(47, 47, 47))
+                .addGap(16, 16, 16)
+                .addComponent(btn_done_boarding, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -194,19 +204,18 @@ private int id;
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(cb_species, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel12)
-                                .addComponent(btn_done_appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jCheckBox1))))
                     .addGap(30, 30, 30)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel15)
                         .addComponent(cb_pet_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(93, Short.MAX_VALUE)))
+                    .addContainerGap(85, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_done_appointmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_done_appointmentMouseClicked
+    private void btn_done_boardingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_done_boardingMouseClicked
         if(isEdit==true){
             if(cb_domestic.isSelected()){
                 String sql="Update BoardingServiceTable set cust_first_name="+et_owner_first_name.getText()+
@@ -267,7 +276,11 @@ private int id;
                 JOptionPane.showMessageDialog(null,"Error creating appointment.");
             }
         }
-    }//GEN-LAST:event_btn_done_appointmentMouseClicked
+    }//GEN-LAST:event_btn_done_boardingMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        conn=Connect.connectDB();
+    }//GEN-LAST:event_formWindowOpened
  
     private void query(String sql){
         try{
@@ -279,8 +292,8 @@ private int id;
     }
     
     public void insertToTable(String doe, String species){
-        String sql="INSERT INTO BoardingServiceTable VALUES("+
-                        id+",'"+
+        String sql="INSERT INTO BoardingServiceTable VALUES('"+
+                        id+"','"+
                         et_owner_first_name.getText()+"','"+
                         et_owner_last_name.getText()+"','"+
                         et_owner_address.getText()+"','"+
@@ -294,7 +307,7 @@ private int id;
         pst=conn.prepareStatement(sql);
         pst.execute();
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
+            e.printStackTrace();
         }
     }
     
@@ -325,7 +338,6 @@ private int id;
             jdc_appointment.setDate(obDataFormat.parse(rs.getString("appointment_date")));
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Error.");
             e.printStackTrace();
         }
     }
@@ -365,7 +377,7 @@ private int id;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_done_appointment;
+    private javax.swing.JButton btn_done_boarding;
     private javax.swing.JCheckBox cb_domestic;
     private javax.swing.JCheckBox cb_exotic;
     private javax.swing.JComboBox cb_pet_gender;

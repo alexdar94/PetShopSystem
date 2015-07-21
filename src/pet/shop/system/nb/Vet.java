@@ -32,45 +32,38 @@ private ResultSet rs=null;
 private PreparedStatement pst=null;
 private List<Enum_Species> expertises= new ArrayList<Enum_Species>();
 private List<Boolean> expertisesBooleans= new ArrayList<Boolean>();
-
+private int numberOfPetSeen;
     public Vet() {}
 
-    public Vet(String firstName){super.setFirstName(firstName);setExpertise();}
+    public Vet(String firstName){setFirstName(firstName);setExpertise();}
     
     public Vet(String firstName, String lastName, String address, String contact, String email){
         super(firstName, lastName, address, contact, email);
         setExpertise();
     }
     
-    public void petHealthReport(Pet p){
-        if(p instanceof Dog){
-            Frame_Vet_PR_Dog fv=new Frame_Vet_PR_Dog();
-            fv.setVisible(true);
-        }else if(p instanceof Cat){
-            Frame_Vet_PR_Cat fv=new Frame_Vet_PR_Cat();
-            fv.setVisible(true);
-        }else if(p instanceof Rabbit){
-            Frame_Vet_PR_Rabbit fv=new Frame_Vet_PR_Rabbit();
-            fv.setVisible(true);
-        }else if(p instanceof Lizard){
-            Frame_Vet_PR_Lizard fv=new Frame_Vet_PR_Lizard();
-            fv.setVisible(true);
-        }else if(p instanceof Bird){
-            Frame_Vet_PR_Bird fv=new Frame_Vet_PR_Bird();
-            fv.setVisible(true);
-        }
-    }
-    
-    public String getFirstName(){
-        return super.getFirstName();
+    public void petHealthReport(Enum_Species species){
+        switch(species){
+                    case Dog:   Frame_Vet_PR_Dog fd=new Frame_Vet_PR_Dog(this);
+                                fd.setVisible(true);break;
+                    case Cat:   Frame_Vet_PR_Cat fc=new Frame_Vet_PR_Cat(this);
+                                fc.setVisible(true);break;
+                    case Rabbit:Frame_Vet_PR_Rabbit fr=new Frame_Vet_PR_Rabbit(this);
+                                fr.setVisible(true);break;
+                    case Lizard:Frame_Vet_PR_Lizard fl=new Frame_Vet_PR_Lizard(this);
+                                fl.setVisible(true);break;
+                    case Bird:  Frame_Vet_PR_Bird fb=new Frame_Vet_PR_Bird(this);
+                                fb.setVisible(true);break;
+                    default:break;
+                }
     }
     
     public String getName(){
-        return super.getFirstName()+" "+super.getLastName();
+        return getFirstName()+" "+getLastName();
     }
     
     public void setExpertise(){
-        String sql="SELECT * FROM VetDetails WHERE first_name='"+super.getFirstName()+"'";
+        String sql="SELECT * FROM VetDetails WHERE first_name='"+getFirstName()+"'";
         conn=Connect.connectDB();
         try{
             pst=conn.prepareStatement(sql);
@@ -96,4 +89,40 @@ private List<Boolean> expertisesBooleans= new ArrayList<Boolean>();
         return this.expertisesBooleans;
     }
     
+    public int getNumberOfPetSeen(Enum_Species species){
+        String sql="SELECT * FROM VetDetails WHERE first_name='"+getFirstName()+"'";
+        conn=Connect.connectDB();
+        numberOfPetSeen=0;
+        try{
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            
+            if(rs.next()){
+               switch(species){
+                    case Dog:numberOfPetSeen=rs.getInt("number_of_dog_seen");break;
+                    case Cat:numberOfPetSeen=rs.getInt("number_of_cat_seen");break;
+                    case Rabbit:numberOfPetSeen=rs.getInt("number_of_rabbit_seen");break;
+                    case Lizard:numberOfPetSeen=rs.getInt("number_of_lizard_seen");break;
+                    case Bird:numberOfPetSeen=rs.getInt("number_of_bird_seen");break;
+                    default:numberOfPetSeen=0;break;
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return numberOfPetSeen;
+    }
+    
+    public void setNumberOfPetSeen(Enum_Species species){
+        numberOfPetSeen=getNumberOfPetSeen(species)+1;
+        String sql="UPDATE VetDetails SET number_of_"+species.toString().toLowerCase()+"_seen="+numberOfPetSeen+
+                   "WHERE first_name='"+getFirstName()+"'";
+        conn=Connect.connectDB();
+        try{
+                pst=conn.prepareStatement(sql);
+                pst.executeUpdate();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+    }
 }

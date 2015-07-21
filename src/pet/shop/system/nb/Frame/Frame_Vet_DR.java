@@ -5,12 +5,16 @@
  */
 package pet.shop.system.nb.Frame;
 
+import pet.shop.system.nb.Enum.Enum_Species;
+import pet.shop.system.nb.Vet;
+
 /**
  *
  * @author User
  */
 public class Frame_Vet_DR extends javax.swing.JFrame {
-
+private Vet vet;
+private Enum_Species species;
     /**
      * Creates new form Frame_Vet_DR
      */
@@ -18,6 +22,12 @@ public class Frame_Vet_DR extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Frame_Vet_DR(Vet vet, Enum_Species species) {
+        initComponents();
+        this.vet=vet;
+        this.species=species;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +50,11 @@ public class Frame_Vet_DR extends javax.swing.JFrame {
         jLabel1.setText("Diagnosis Report:");
 
         btn_PD_report_done.setText("Done");
+        btn_PD_report_done.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_PD_report_doneMouseClicked(evt);
+            }
+        });
 
         jLabel2.setText("Medicine :");
 
@@ -88,6 +103,10 @@ public class Frame_Vet_DR extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_PD_report_doneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PD_report_doneMouseClicked
+        vet.setNumberOfPetSeen(species);
+    }//GEN-LAST:event_btn_PD_report_doneMouseClicked
 
     /**
      * @param args the command line arguments

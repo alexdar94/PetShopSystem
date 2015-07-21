@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import pet.shop.system.nb.Enum.Enum_Species;
 import pet.shop.system.nb.Vet;
 
 /**
@@ -30,7 +31,7 @@ private Vet vet;
     
     public Frame_Vet(Vet vet) {
         initComponents();
-        this.vet=vet;
+        this.vet=vet;      
     }
 
     /**
@@ -112,7 +113,9 @@ private Vet vet;
     }//GEN-LAST:event_jTable_vetMouseClicked
 
     private void btn_consultMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_consultMouseClicked
-        vet.petHealthReport(null);
+        int row=jTable_vet.getSelectedRow();
+        Enum_Species species=Enum_Species.valueOf(jTable_vet.getModel().getValueAt(row, 5).toString());
+        vet.petHealthReport(species);
     }//GEN-LAST:event_btn_consultMouseClicked
 
     public void updateJTable(){  
@@ -123,6 +126,7 @@ private Vet vet;
             rs= pst.executeQuery();
             jTable_vet.setModel(DbUtils.resultSetToTableModel(rs));
         }catch(Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Error");
         }
     }

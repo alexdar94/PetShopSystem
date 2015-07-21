@@ -5,12 +5,15 @@
  */
 package pet.shop.system.nb.Frame;
 
+import pet.shop.system.nb.Enum.Enum_Species;
+import pet.shop.system.nb.Vet;
+
 /**
  *
  * @author User
  */
 public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
-
+private Vet vet;
     /**
      * Creates new form Frame_Vet_HR_Dog
      */
@@ -18,6 +21,10 @@ public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Frame_Vet_PR_Dog(Vet vet) {
+        initComponents();
+        this.vet=vet;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,7 +53,7 @@ public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         no2 = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_diagnosis = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +95,12 @@ public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
 
         jLabel7.setText("Prognosis");
 
-        jButton1.setText("Diagnosis");
+        btn_diagnosis.setText("Diagnosis");
+        btn_diagnosis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_diagnosisMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,7 +150,7 @@ public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
-                                .addComponent(jButton1))
+                                .addComponent(btn_diagnosis))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(yes6)
                                 .addGap(18, 18, 18)
@@ -181,12 +193,17 @@ public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
                     .addComponent(no6)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btn_diagnosis)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_diagnosisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_diagnosisMouseClicked
+        Frame_Vet_DR dr= new Frame_Vet_DR(vet,Enum_Species.Dog);
+        dr.setVisible(true);
+    }//GEN-LAST:event_btn_diagnosisMouseClicked
 
     /**
      * @param args the command line arguments
@@ -225,7 +242,7 @@ public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_diagnosis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
