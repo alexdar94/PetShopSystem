@@ -5,15 +5,29 @@
  */
 package pet.shop.system.nb;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import pet.shop.system.nb.Enum.Enum_Species;
 import pet.shop.system.nb.Enum.Enum_Domestic_Exotic;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import pet.shop.system.nb.Pet.Bird;
+import pet.shop.system.nb.Pet.Cat;
+import pet.shop.system.nb.Pet.Dog;
+import pet.shop.system.nb.Pet.Lizard;
+import pet.shop.system.nb.Pet.Pet;
+import pet.shop.system.nb.Pet.Rabbit;
 
 /**
  *
  * @author User
  */
 public class Appointment {
+    private Connection conn=null;
+    private PreparedStatement pst=null;
+    private ResultSet rs=null;
     private int id;
     private Customer_Normal cn;
     private Date date;
@@ -26,6 +40,78 @@ public class Appointment {
         this.vet=vet;
         this.date=date;
         this.time=time;
+    }
+    
+    public double getCharge(){
+        if(cn.getPet() instanceof Dog){
+            return Dog.getCharge(1);
+        }else if(cn.getPet() instanceof Cat){
+            return Dog.getCharge(1);
+        }else if(cn.getPet() instanceof Rabbit){
+            return Dog.getCharge(1);
+        }else if(cn.getPet() instanceof Lizard){
+            return Dog.getCharge(1);
+        }else if(cn.getPet() instanceof Bird){
+            return Dog.getCharge(1);
+        }else{
+            return -1;
+        }
+    }
+    
+    public double getCharge(double discount){
+        if(cn.getPet() instanceof Dog){
+            return Dog.getCharge(1)*discount;
+        }else if(cn.getPet() instanceof Cat){
+            return Cat.getCharge(1)*discount;
+        }else if(cn.getPet() instanceof Rabbit){
+            return Rabbit.getCharge(1)*discount;
+        }else if(cn.getPet() instanceof Lizard){
+            return Lizard.getCharge(1)*discount;
+        }else if(cn.getPet() instanceof Bird){
+            return Bird.getCharge(1)*discount;
+        }else{
+            return -1;
+        }
+    }
+    
+    public void payout(){
+        if(cn.getPet() instanceof Dog){
+            updateProfitReport(Dog.getCharge(1));
+        }else if(cn.getPet() instanceof Cat){
+            updateProfitReport(Cat.getCharge(1));
+        }else if(cn.getPet() instanceof Rabbit){
+            updateProfitReport(Rabbit.getCharge(1));
+        }else if(cn.getPet() instanceof Lizard){
+            updateProfitReport(Lizard.getCharge(1));
+        }else if(cn.getPet() instanceof Bird){
+            updateProfitReport(Bird.getCharge(1));
+        }
+    }
+    
+    public void payout(double discount){
+        if(cn.getPet() instanceof Dog){
+            updateProfitReport(Dog.getCharge(1)*discount);
+        }else if(cn.getPet() instanceof Cat){
+            updateProfitReport(Cat.getCharge(1)*discount);
+        }else if(cn.getPet() instanceof Rabbit){
+            updateProfitReport(Rabbit.getCharge(1)*discount);
+        }else if(cn.getPet() instanceof Lizard){
+            updateProfitReport(Lizard.getCharge(1)*discount);
+        }else if(cn.getPet() instanceof Bird){
+            updateProfitReport(Bird.getCharge(1)*discount);
+        }
+    }
+    
+    public void updateProfitReport(double amount){
+        String sql="INSERT INTO ProfitTable VALUES('"+new SimpleDateFormat("MMM dd yyyy").format(date)+"','"+
+                   cn.getPetSpecies()+"','"+amount+"','"+vet+"')";
+        conn=Connect.connectDB();
+        try{
+        pst=conn.prepareStatement(sql);
+        pst.execute();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
 }
