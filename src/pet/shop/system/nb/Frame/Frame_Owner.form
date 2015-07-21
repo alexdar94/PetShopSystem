@@ -26,11 +26,11 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="130" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btn_register_user1" max="32767" attributes="0"/>
+                  <Component id="btn_create_working_timetable" max="32767" attributes="0"/>
                   <Component id="btn_register_user" max="32767" attributes="0"/>
-                  <Component id="btn_register_user2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btn_register_user3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btn_register_user4" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
+                  <Component id="btn_view_pet_overnight" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btn_view_income" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btn_view_pet_seen" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
           </Group>
@@ -42,13 +42,13 @@
               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               <Component id="btn_register_user" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btn_register_user1" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_create_working_timetable" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btn_register_user2" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_view_pet_overnight" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btn_register_user3" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_view_income" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btn_register_user4" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_view_pet_seen" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="90" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -63,36 +63,36 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_register_userMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_register_user1">
+    <Component class="javax.swing.JButton" name="btn_create_working_timetable">
       <Properties>
         <Property name="text" type="java.lang.String" value="Create vet working timetable"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_register_user1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_create_working_timetableMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_register_user2">
+    <Component class="javax.swing.JButton" name="btn_view_pet_overnight">
       <Properties>
         <Property name="text" type="java.lang.String" value="View pets staying overnight"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_register_user2MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_view_pet_overnightMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_register_user3">
+    <Component class="javax.swing.JButton" name="btn_view_income">
       <Properties>
         <Property name="text" type="java.lang.String" value="View income"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_register_user3MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_view_incomeMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_register_user4">
+    <Component class="javax.swing.JButton" name="btn_view_pet_seen">
       <Properties>
         <Property name="text" type="java.lang.String" value="View pets seen by vet"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_register_user4MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_view_pet_seenMouseClicked"/>
       </Events>
     </Component>
   </SubComponents>

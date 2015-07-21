@@ -26,6 +26,7 @@ private List<Boolean> expertiseBooleans1=new ArrayList<Boolean>();
 private List<Boolean> expertiseBooleans2=new ArrayList<Boolean>();
 private List<Boolean> expertiseBooleans3=new ArrayList<Boolean>();
 private List<Vet> vets=new ArrayList<Vet>();
+private String[] names={"Wayne Allard","Michael Archinal","Chris Back","Harold William Bennetts","Denis Barberet","Christ Brown","Justin Bieber","Bean Bieber"};
 private String[] firstNames={"Wayne","Michael","Chris","Harold","Denis","Christ","Justin","Bean"};
 private Boolean[] booleans=new Boolean[7];
     /**
@@ -99,59 +100,59 @@ private Boolean[] booleans=new Boolean[7];
 
         jLabel1.setText("Monday");
 
-        cb_mon_1.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_mon_1.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_mon_2.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_mon_2.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_mon_3.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_mon_3.setModel(new javax.swing.DefaultComboBoxModel(names));
 
         jLabel2.setText("Tuesday");
 
-        cb_tues_1.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_tues_1.setModel(new javax.swing.DefaultComboBoxModel(names));
 
         jLabel3.setText("Wednesday");
 
-        cb_wed_1.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_wed_1.setModel(new javax.swing.DefaultComboBoxModel(names));
 
         jLabel4.setText("Thursday");
 
-        cb_thurs_1.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_thurs_1.setModel(new javax.swing.DefaultComboBoxModel(names));
 
         jLabel5.setText("Friday");
 
-        cb_fri_1.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_fri_1.setModel(new javax.swing.DefaultComboBoxModel(names));
 
         jLabel6.setText("Saturday");
 
-        cb_sat_1.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_sat_1.setModel(new javax.swing.DefaultComboBoxModel(names));
 
         jLabel7.setText("Sunday");
 
-        cb_sun_1.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_sun_1.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_tues_2.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_tues_2.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_tues_3.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_tues_3.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_wed_2.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_wed_2.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_wed_3.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_wed_3.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_thurs_2.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_thurs_2.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_thurs_3.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_thurs_3.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_fri_2.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_fri_2.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_fri_3.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_fri_3.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_sat_2.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_sat_2.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_sat_3.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_sat_3.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_sun_2.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_sun_2.setModel(new javax.swing.DefaultComboBoxModel(names));
 
-        cb_sun_3.setModel(new javax.swing.DefaultComboBoxModel(firstNames));
+        cb_sun_3.setModel(new javax.swing.DefaultComboBoxModel(names));
 
         btn_check6.setText("Check");
         btn_check6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -395,14 +396,14 @@ private Boolean[] booleans=new Boolean[7];
 
     private Vet check(String x){
         switch(x){
-            case "Wayne":return vets.get(0);
-            case "Michael":return vets.get(1);
-            case "Chris":return vets.get(2);
-            case "Harold":return vets.get(3);
-            case "Denis":return vets.get(4);
-            case "Christ":return vets.get(5);
-            case "Justin":return vets.get(6);
-            case "Bean":return vets.get(7);
+            case "Wayne Allard":return vets.get(0);
+            case "Michael Archinal":return vets.get(1);
+            case "Chris Back":return vets.get(2);
+            case "Harold William Bennetts":return vets.get(3);
+            case "Denis Barberet":return vets.get(4);
+            case "Christ Brown":return vets.get(5);
+            case "Justin Bieber":return vets.get(6);
+            case "Bean Bieber":return vets.get(7);
             default:return null;
         }
     }

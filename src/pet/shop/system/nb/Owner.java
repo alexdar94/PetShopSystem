@@ -9,6 +9,8 @@ package pet.shop.system.nb;
  *
  * @author User
  */
-public class Owner{
-    
+public class Owner extends User{
+    public void viewVetNumberOfPetSeen(){
+        String sql="SELECT ";
+    }
 }

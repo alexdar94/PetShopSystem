@@ -239,21 +239,21 @@
     <Component class="javax.swing.JComboBox" name="cb_mon_1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_mon_2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_mon_3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -265,7 +265,7 @@
     <Component class="javax.swing.JComboBox" name="cb_tues_1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -277,7 +277,7 @@
     <Component class="javax.swing.JComboBox" name="cb_wed_1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -289,7 +289,7 @@
     <Component class="javax.swing.JComboBox" name="cb_thurs_1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -301,7 +301,7 @@
     <Component class="javax.swing.JComboBox" name="cb_fri_1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -313,7 +313,7 @@
     <Component class="javax.swing.JComboBox" name="cb_sat_1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -325,91 +325,91 @@
     <Component class="javax.swing.JComboBox" name="cb_sun_1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_tues_2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_tues_3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_wed_2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_wed_3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_thurs_2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_thurs_3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_fri_2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_fri_3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_sat_2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_sat_3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_sun_2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_sun_3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(firstNames)" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(names)" type="code"/>
         </Property>
       </Properties>
     </Component>

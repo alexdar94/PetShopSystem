@@ -28,10 +28,10 @@ public class Frame_Owner extends javax.swing.JFrame {
     private void initComponents() {
 
         btn_register_user = new javax.swing.JButton();
-        btn_register_user1 = new javax.swing.JButton();
-        btn_register_user2 = new javax.swing.JButton();
-        btn_register_user3 = new javax.swing.JButton();
-        btn_register_user4 = new javax.swing.JButton();
+        btn_create_working_timetable = new javax.swing.JButton();
+        btn_view_pet_overnight = new javax.swing.JButton();
+        btn_view_income = new javax.swing.JButton();
+        btn_view_pet_seen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,31 +42,31 @@ public class Frame_Owner extends javax.swing.JFrame {
             }
         });
 
-        btn_register_user1.setText("Create vet working timetable");
-        btn_register_user1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_create_working_timetable.setText("Create vet working timetable");
+        btn_create_working_timetable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_register_user1MouseClicked(evt);
+                btn_create_working_timetableMouseClicked(evt);
             }
         });
 
-        btn_register_user2.setText("View pets staying overnight");
-        btn_register_user2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_view_pet_overnight.setText("View pets staying overnight");
+        btn_view_pet_overnight.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_register_user2MouseClicked(evt);
+                btn_view_pet_overnightMouseClicked(evt);
             }
         });
 
-        btn_register_user3.setText("View income");
-        btn_register_user3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_view_income.setText("View income");
+        btn_view_income.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_register_user3MouseClicked(evt);
+                btn_view_incomeMouseClicked(evt);
             }
         });
 
-        btn_register_user4.setText("View pets seen by vet");
-        btn_register_user4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_view_pet_seen.setText("View pets seen by vet");
+        btn_view_pet_seen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_register_user4MouseClicked(evt);
+                btn_view_pet_seenMouseClicked(evt);
             }
         });
 
@@ -77,11 +77,11 @@ public class Frame_Owner extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(130, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_register_user1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_create_working_timetable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_register_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_register_user2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_register_user3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_register_user4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_view_pet_overnight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_view_income, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_view_pet_seen, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(116, 116, 116))
         );
         layout.setVerticalGroup(
@@ -90,13 +90,13 @@ public class Frame_Owner extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addComponent(btn_register_user)
                 .addGap(18, 18, 18)
-                .addComponent(btn_register_user1)
+                .addComponent(btn_create_working_timetable)
                 .addGap(18, 18, 18)
-                .addComponent(btn_register_user2)
+                .addComponent(btn_view_pet_overnight)
                 .addGap(18, 18, 18)
-                .addComponent(btn_register_user3)
+                .addComponent(btn_view_income)
                 .addGap(18, 18, 18)
-                .addComponent(btn_register_user4)
+                .addComponent(btn_view_pet_seen)
                 .addContainerGap(90, Short.MAX_VALUE))
         );
 
@@ -108,21 +108,23 @@ public class Frame_Owner extends javax.swing.JFrame {
         focu.setVisible(true);
     }//GEN-LAST:event_btn_register_userMouseClicked
 
-    private void btn_register_user1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_register_user1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_register_user1MouseClicked
+    private void btn_create_working_timetableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_create_working_timetableMouseClicked
+        Frame_Owner_Create_Working_Timetable fr= new Frame_Owner_Create_Working_Timetable();
+        fr.setVisible(true);
+    }//GEN-LAST:event_btn_create_working_timetableMouseClicked
 
-    private void btn_register_user2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_register_user2MouseClicked
+    private void btn_view_pet_overnightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_pet_overnightMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_register_user2MouseClicked
+    }//GEN-LAST:event_btn_view_pet_overnightMouseClicked
 
-    private void btn_register_user3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_register_user3MouseClicked
+    private void btn_view_incomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_incomeMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_register_user3MouseClicked
+    }//GEN-LAST:event_btn_view_incomeMouseClicked
 
-    private void btn_register_user4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_register_user4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_register_user4MouseClicked
+    private void btn_view_pet_seenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_pet_seenMouseClicked
+        Frame_Owner_View_Pet_Seen fr= new Frame_Owner_View_Pet_Seen();
+        fr.setVisible(true);
+    }//GEN-LAST:event_btn_view_pet_seenMouseClicked
 
     /**
      * @param args the command line arguments
@@ -160,10 +162,10 @@ public class Frame_Owner extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_create_working_timetable;
     private javax.swing.JButton btn_register_user;
-    private javax.swing.JButton btn_register_user1;
-    private javax.swing.JButton btn_register_user2;
-    private javax.swing.JButton btn_register_user3;
-    private javax.swing.JButton btn_register_user4;
+    private javax.swing.JButton btn_view_income;
+    private javax.swing.JButton btn_view_pet_overnight;
+    private javax.swing.JButton btn_view_pet_seen;
     // End of variables declaration//GEN-END:variables
 }

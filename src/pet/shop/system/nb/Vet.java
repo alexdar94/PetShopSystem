@@ -58,9 +58,7 @@ private int numberOfPetSeen;
                 }
     }
     
-    public String getName(){
-        return getFirstName()+" "+getLastName();
-    }
+    
     
     public void setExpertise(){
         String sql="SELECT * FROM VetDetails WHERE first_name='"+getFirstName()+"'";
