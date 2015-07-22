@@ -13,8 +13,8 @@ import pet.shop.system.nb.Enum.Enum_Species;
  * @author User
  */
 public class Cat extends Pet{
-private static double charge_appointment=250;
-private static double charge_boarding=30;
+private static double charge_appointment=100;
+private static double charge_boarding=60;
 
     public Cat(String name,Enum_Species species,Enum_Domestic_Exotic doe) {
         super(name, species, doe);

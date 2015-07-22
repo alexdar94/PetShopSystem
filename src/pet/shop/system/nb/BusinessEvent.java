@@ -9,6 +9,7 @@ package pet.shop.system.nb;
  *
  * @author User
  */
-public class Receptionist extends User{
-    
+public abstract class BusinessEvent {
+    public abstract double getCharge();
+    public abstract void payout();
 }

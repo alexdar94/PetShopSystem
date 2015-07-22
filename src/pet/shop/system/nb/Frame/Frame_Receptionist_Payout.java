@@ -8,6 +8,7 @@ package pet.shop.system.nb.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import pet.shop.system.nb.Appointment;
+import pet.shop.system.nb.BoardingService;
 import pet.shop.system.nb.Customer_Member;
 
 /**
@@ -16,6 +17,7 @@ import pet.shop.system.nb.Customer_Member;
  */
 public class Frame_Receptionist_Payout extends javax.swing.JFrame {
 private Appointment appointment;
+private BoardingService boarding;
     /**
      * Creates new form Frame_Receptionist_PayOut
      */
@@ -23,19 +25,30 @@ private Appointment appointment;
         initComponents();
     }
 
+    public Frame_Receptionist_Payout(BoardingService boarding) {
+        initComponents();
+        this.boarding=boarding;
+        lbl_amount.setText("$"+boarding.getCharge()+"");
+        
+        cb_member.addActionListener((ActionEvent e) -> {
+            if(cb_member.isSelected()){
+                lbl_amount.setText("$"+boarding.getCharge(Customer_Member.getDiscount())+"");
+            }else{
+                lbl_amount.setText("$"+boarding.getCharge()+"");
+            }
+        });
+    }
+    
     public Frame_Receptionist_Payout(Appointment appointment) {
         initComponents();
         this.appointment=appointment;
         lbl_amount.setText("$"+appointment.getCharge()+"");
         
-        cb_member.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(cb_member.isSelected()){
-                    lbl_amount.setText("$"+appointment.getCharge(Customer_Member.getDiscount())+"");
-                }else{
-                    lbl_amount.setText("$"+appointment.getCharge()+"");
-                }
+        cb_member.addActionListener((ActionEvent e) -> {
+            if(cb_member.isSelected()){
+                lbl_amount.setText("$"+appointment.getCharge(Customer_Member.getDiscount())+"");
+            }else{
+                lbl_amount.setText("$"+appointment.getCharge()+"");
             }
         });
     }
@@ -121,9 +134,11 @@ private Appointment appointment;
 
     private void btn_payMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_payMouseClicked
         if(cb_member.isSelected()){
-            appointment.payout(Customer_Member.getDiscount());
+            if(appointment!=null)appointment.payout(Customer_Member.getDiscount());
+            if(boarding!=null)boarding.payout(Customer_Member.getDiscount());
         }else{
-            appointment.payout();
+            if(appointment!=null)appointment.payout();
+            if(boarding!=null)boarding.payout();
         }
         this.setVisible(false);
     }//GEN-LAST:event_btn_payMouseClicked

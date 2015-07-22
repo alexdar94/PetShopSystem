@@ -9,52 +9,47 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-import pet.shop.system.nb.Enum.Enum_Species;
-import pet.shop.system.nb.Enum.Enum_Domestic_Exotic;
 import java.util.Date;
-import javax.swing.JOptionPane;
+import pet.shop.system.nb.Enum.Enum_Domestic_Exotic;
+import pet.shop.system.nb.Enum.Enum_Gender;
+import pet.shop.system.nb.Enum.Enum_Species;
 import pet.shop.system.nb.Pet.Bird;
 import pet.shop.system.nb.Pet.Cat;
 import pet.shop.system.nb.Pet.Dog;
 import pet.shop.system.nb.Pet.Lizard;
-import pet.shop.system.nb.Pet.Pet;
 import pet.shop.system.nb.Pet.Rabbit;
 
 /**
  *
  * @author User
  */
-public class Appointment extends BusinessEvent{
+public class BoardingService extends BusinessEvent{
     private Connection conn=null;
     private PreparedStatement pst=null;
     private ResultSet rs=null;
     private int id;
     private Customer_Normal cn;
     private Date date;
-    private String vet, startTime,endTime;
     
-    public Appointment(int id,String firstName, String lastName, String address, String contact, 
-            String email, String petName,Enum_Species species,Enum_Domestic_Exotic de, String vet, Date date,String startTime,String endTime){
+    public BoardingService(int id,String firstName, String lastName, String address, String contact, 
+            String email, String petName,Enum_Species species,Enum_Domestic_Exotic de, Date date){
         cn= new Customer_Normal(firstName,lastName,address,contact,email,petName,species,de);
         this.id=id;
-        this.vet=vet;
-        this.date=date;
-        this.startTime=startTime;
-        this.endTime=endTime;
+        this.date=date;   
     }
     
     @Override
     public double getCharge(){
         if(cn.getPet() instanceof Dog){
-            return Dog.getCharge(1);
+            return Dog.getCharge(0);
         }else if(cn.getPet() instanceof Cat){
-            return Dog.getCharge(1);
+            return Cat.getCharge(0);
         }else if(cn.getPet() instanceof Rabbit){
-            return Dog.getCharge(1);
+            return Rabbit.getCharge(0);
         }else if(cn.getPet() instanceof Lizard){
-            return Dog.getCharge(1);
+            return Lizard.getCharge(0);
         }else if(cn.getPet() instanceof Bird){
-            return Dog.getCharge(1);
+            return Bird.getCharge(0);
         }else{
             return -1;
         }
@@ -62,15 +57,15 @@ public class Appointment extends BusinessEvent{
     
     public double getCharge(double discount){
         if(cn.getPet() instanceof Dog){
-            return Dog.getCharge(1)*discount;
+            return Dog.getCharge(0)*discount;
         }else if(cn.getPet() instanceof Cat){
-            return Cat.getCharge(1)*discount;
+            return Cat.getCharge(0)*discount;
         }else if(cn.getPet() instanceof Rabbit){
-            return Rabbit.getCharge(1)*discount;
+            return Rabbit.getCharge(0)*discount;
         }else if(cn.getPet() instanceof Lizard){
-            return Lizard.getCharge(1)*discount;
+            return Lizard.getCharge(0)*discount;
         }else if(cn.getPet() instanceof Bird){
-            return Bird.getCharge(1)*discount;
+            return Bird.getCharge(0)*discount;
         }else{
             return -1;
         }
@@ -79,35 +74,35 @@ public class Appointment extends BusinessEvent{
     @Override
     public void payout(){
         if(cn.getPet() instanceof Dog){
-            updateProfitReport(Dog.getCharge(1));
+            updateProfitReport(Dog.getCharge(0));
         }else if(cn.getPet() instanceof Cat){
-            updateProfitReport(Cat.getCharge(1));
+            updateProfitReport(Cat.getCharge(0));
         }else if(cn.getPet() instanceof Rabbit){
-            updateProfitReport(Rabbit.getCharge(1));
+            updateProfitReport(Rabbit.getCharge(0));
         }else if(cn.getPet() instanceof Lizard){
-            updateProfitReport(Lizard.getCharge(1));
+            updateProfitReport(Lizard.getCharge(0));
         }else if(cn.getPet() instanceof Bird){
-            updateProfitReport(Bird.getCharge(1));
+            updateProfitReport(Bird.getCharge(0));
         }
     }
     
     public void payout(double discount){
         if(cn.getPet() instanceof Dog){
-            updateProfitReport(Dog.getCharge(1)*discount);
+            updateProfitReport(Dog.getCharge(0)*discount);
         }else if(cn.getPet() instanceof Cat){
-            updateProfitReport(Cat.getCharge(1)*discount);
+            updateProfitReport(Cat.getCharge(0)*discount);
         }else if(cn.getPet() instanceof Rabbit){
-            updateProfitReport(Rabbit.getCharge(1)*discount);
+            updateProfitReport(Rabbit.getCharge(0)*discount);
         }else if(cn.getPet() instanceof Lizard){
-            updateProfitReport(Lizard.getCharge(1)*discount);
+            updateProfitReport(Lizard.getCharge(0)*discount);
         }else if(cn.getPet() instanceof Bird){
-            updateProfitReport(Bird.getCharge(1)*discount);
+            updateProfitReport(Bird.getCharge(0)*discount);
         }
     }
     
     public void updateProfitReport(double amount){
         String sql="INSERT INTO ProfitTable VALUES('"+new SimpleDateFormat("MMM dd yyyy").format(date)+"','"+
-                   cn.getPetSpecies()+"','"+amount+"','"+vet+"')";
+                   cn.getPetSpecies()+"','"+amount+"','Boarding Staff')";
         conn=Connect.connectDB();
         try{
         pst=conn.prepareStatement(sql);
@@ -116,5 +111,4 @@ public class Appointment extends BusinessEvent{
             e.printStackTrace();
         }
     }
-    
 }

@@ -115,7 +115,7 @@ PreparedStatement pst=null;
                 Frame_Vet fv= new Frame_Vet(vet);
                 fv.setVisible(true);
             }else if(rs.getString("role").equals("boarding stuff")){
-                Frame_BoardingStuff fbs= new Frame_BoardingStuff();
+                Frame_BoardingStaff fbs= new Frame_BoardingStaff();
                 fbs.setVisible(true);
             }
         }catch(Exception e){

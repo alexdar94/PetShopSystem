@@ -335,18 +335,18 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
             }
             
             if(cb_domestic.isSelected()&&cb_exotic.isSelected()){
-                JOptionPane.showMessageDialog(null,"Error creating appointment. Please select domestic or exotic");
+                JOptionPane.showMessageDialog(null,"Error creating appointment. Please select domestic or exotic.");
             }else if(cb_domestic.isSelected()){
                 id++;
                 Appointment appointment= new Appointment(id,et_owner_first_name.getText(), et_owner_last_name.getText(), 
                     et_owner_address.getText(), et_owner_contact.getText(), et_owner_email.getText(), 
                     et_owner_pet_name.getText(), Enum_Species.valueOf(cb_species.getSelectedItem().toString()),
                     Enum_Domestic_Exotic.Domestic, cb_vet.getSelectedItem().toString(),
-                    jdc_appointment.getDate(), cb_time_start.getSelectedItem().toString());
+                    jdc_appointment.getDate(), cb_time_start.getSelectedItem().toString(),cb_time_end.getSelectedItem().toString());
                 insertToTable(Enum_Domestic_Exotic.Domestic.toString(),cb_species.getSelectedItem().toString());
-                JOptionPane.showMessageDialog(null, "Appointment saved.");
+                JOptionPane.showMessageDialog(null, "Appointment recorded.");
                 
-                Frame_Receptionist_Payout fr=new Frame_Receptionist_Payout();
+                Frame_Receptionist_Payout fr=new Frame_Receptionist_Payout(appointment);
                 fr.setVisible(true);
             }else if (cb_exotic.isSelected()){
                 id++;
@@ -354,11 +354,11 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                     et_owner_address.getText(), et_owner_contact.getText(), et_owner_email.getText(), 
                     et_owner_pet_name.getText(), Enum_Species.valueOf(cb_species.getSelectedItem().toString()),
                     Enum_Domestic_Exotic.Exotic, cb_vet.getSelectedItem().toString(),
-                    jdc_appointment.getDate(), cb_time_start.getSelectedItem().toString());
+                    jdc_appointment.getDate(), cb_time_start.getSelectedItem().toString(),cb_time_end.getSelectedItem().toString());
                 insertToTable(Enum_Domestic_Exotic.Exotic.toString(),cb_species.getSelectedItem().toString());  
-                JOptionPane.showMessageDialog(null, "Appointment saved.");
+                JOptionPane.showMessageDialog(null, "Appointment recorded.");
                 
-                Frame_Receptionist_Payout fr=new Frame_Receptionist_Payout();
+                Frame_Receptionist_Payout fr=new Frame_Receptionist_Payout(appointment);
                 fr.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null,"Error creating appointment.");

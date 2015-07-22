@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import pet.shop.system.nb.Connect;
 import pet.shop.system.nb.Enum.Enum_Species;
 import pet.shop.system.nb.Vet;
 
@@ -46,7 +47,7 @@ private Vet vet;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_vet = new javax.swing.JTable();
         btn_consult = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_view_status = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,7 +77,12 @@ private Vet vet;
             }
         });
 
-        jButton2.setText("View pet status");
+        btn_view_status.setText("View boarding service pet status");
+        btn_view_status.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_view_statusMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,12 +91,12 @@ private Vet vet;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 140, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_consult, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_view_status, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -101,7 +107,7 @@ private Vet vet;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_consult)
-                    .addComponent(jButton2))
+                    .addComponent(btn_view_status))
                 .addContainerGap())
         );
 
@@ -118,9 +124,15 @@ private Vet vet;
         vet.petHealthReport(species);
     }//GEN-LAST:event_btn_consultMouseClicked
 
+    private void btn_view_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_statusMouseClicked
+        Frame_Vet_View_Pet_Status fr= new Frame_Vet_View_Pet_Status();
+        fr.setVisible(true);
+    }//GEN-LAST:event_btn_view_statusMouseClicked
+
     public void updateJTable(){  
         String sql="SELECT ID,appointment_date,appointment_time_start,appointment_time_end,pet_name,pet_species FROM AppointmentTable"
                 + "WHERE vet_name="+vet.getName();
+        conn=Connect.connectDB();
         try{
             pst=conn.prepareStatement(sql);
             rs= pst.executeQuery();
@@ -168,7 +180,7 @@ private Vet vet;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_consult;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_view_status;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_vet;
     // End of variables declaration//GEN-END:variables
