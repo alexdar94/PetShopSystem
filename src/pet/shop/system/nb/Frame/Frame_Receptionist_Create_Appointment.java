@@ -29,6 +29,7 @@ public class Frame_Receptionist_Create_Appointment extends javax.swing.JFrame {
 Connection conn=null;
 PreparedStatement pst=null;
 ResultSet rs=null;
+private Frame_Receptionist fr;
 private SimpleDateFormat obDataFormat = new SimpleDateFormat("MMM dd yyyy");
 private int id;
 private String id_selected;
@@ -41,7 +42,10 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
         initComponents();
     }
 
-    
+    public Frame_Receptionist_Create_Appointment(Frame_Receptionist fr) {
+        initComponents();
+        this.fr=fr;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -291,34 +295,34 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
     private void btn_done_appointmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_done_appointmentMouseClicked
         if(isEdit==true){
             if(cb_domestic.isSelected()){
-            String sql="Update AppointmentTable set cust_first_name="+et_owner_first_name.getText()+
-                    "cust_last_name="+et_owner_last_name.getText()+
-                    "cust_address="+et_owner_address.getText()+
-                    "cust_contact="+et_owner_contact.getText()+
-                    "cust_email="+et_owner_email.getText()+
-                    "pet_name="+et_owner_pet_name.getText()+
-                    "pet_species="+cb_species.getSelectedItem().toString()+
-                    "pet_doe="+ Enum_Domestic_Exotic.Domestic.toString()+
-                    "vet_name="+cb_vet.getSelectedItem().toString()+
-                    "appointment_date="+obDataFormat.format(jdc_appointment.getDate())+
-                    "appointment_time_start="+cb_time_start.getSelectedItem().toString()+
-                    "appointment_time_start="+cb_time_end.getSelectedItem().toString()+
-                    "WHERE ID="+id_selected;
+            String sql="Update AppointmentTable set cust_first_name='"+et_owner_first_name.getText()+"',"+
+                    "cust_last_name='"+et_owner_last_name.getText()+"',"+
+                    "cust_address='"+et_owner_address.getText()+"',"+
+                    "cust_contact='"+et_owner_contact.getText()+"',"+
+                    "cust_email='"+et_owner_email.getText()+"',"+
+                    "pet_name='"+et_owner_pet_name.getText()+"',"+
+                    "pet_species='"+cb_species.getSelectedItem().toString()+"',"+
+                    "pet_doe='"+ Enum_Domestic_Exotic.Domestic.toString()+"',"+
+                    "vet_name='"+cb_vet.getSelectedItem().toString()+"',"+
+                    "appointment_date='"+obDataFormat.format(jdc_appointment.getDate())+"',"+
+                    "appointment_time_start='"+cb_time_start.getSelectedItem().toString()+"',"+
+                    "appointment_time_end='"+cb_time_end.getSelectedItem().toString()+"' "+
+                    "WHERE ID='"+id_selected+"'";
                 query(sql);
             }else{
-                String sql="Update AppointmentTable set cust_first_name="+et_owner_first_name.getText()+
-                    "cust_last_name="+et_owner_last_name.getText()+
-                    "cust_address="+et_owner_address.getText()+
-                    "cust_contact="+et_owner_contact.getText()+
-                    "cust_email="+et_owner_email.getText()+
-                    "pet_name="+et_owner_pet_name.getText()+
-                    "pet_species="+cb_species.getSelectedItem().toString()+
-                    "pet_doe="+ Enum_Domestic_Exotic.Exotic.toString()+
-                    "vet_name="+cb_vet.getSelectedItem().toString()+
-                    "appointment_date="+obDataFormat.format(jdc_appointment.getDate())+
-                    "appointment_time_start="+cb_time_start.getSelectedItem().toString()+
-                    "appointment_time_start="+cb_time_end.getSelectedItem().toString()+
-                    "WHERE ID="+id_selected;
+                String sql="Update AppointmentTable set cust_first_name='"+et_owner_first_name.getText()+"',"+
+                    "cust_last_name='"+et_owner_last_name.getText()+"',"+
+                    "cust_address='"+et_owner_address.getText()+"',"+
+                    "cust_contact='"+et_owner_contact.getText()+"',"+
+                    "cust_email='"+et_owner_email.getText()+"',"+
+                    "pet_name='"+et_owner_pet_name.getText()+"',"+
+                    "pet_species='"+cb_species.getSelectedItem().toString()+"',"+
+                    "pet_doe='"+ Enum_Domestic_Exotic.Exotic.toString()+"',"+
+                    "vet_name='"+cb_vet.getSelectedItem().toString()+"',"+
+                    "appointment_date='"+obDataFormat.format(jdc_appointment.getDate())+"',"+
+                    "appointment_time_start='"+cb_time_start.getSelectedItem().toString()+"',"+
+                    "appointment_time_end='"+cb_time_end.getSelectedItem().toString()+"' "+
+                    "WHERE ID='"+id_selected+"'";
                 query(sql);
             }
             isEdit=false;
@@ -364,6 +368,7 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                 JOptionPane.showMessageDialog(null,"Error creating appointment.");
             }
         }
+        fr.updateJTable(fr.getJTable_Appointment());
     }//GEN-LAST:event_btn_done_appointmentMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -427,7 +432,7 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                 pst=conn.prepareStatement(sql);
                 pst.executeUpdate();
             }catch(Exception e){
-                
+                e.printStackTrace();
             }
     }
     

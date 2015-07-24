@@ -14,6 +14,7 @@ import pet.shop.system.nb.BoardingStaff;
 public class Frame_BoardingStaff_Pet_Status extends javax.swing.JFrame {
 private String id;
 private BoardingStaff bs;
+private Frame_BoardingStaff fr;
     /**
      * Creates new form Frame_BoardingStaff_Pet_Status
      */
@@ -21,11 +22,13 @@ private BoardingStaff bs;
         initComponents();
     }
 
-    public Frame_BoardingStaff_Pet_Status(String id, BoardingStaff bs) {
+    public Frame_BoardingStaff_Pet_Status(Frame_BoardingStaff fr, String id, BoardingStaff bs) {
         initComponents();
+        this.fr=fr;
         this.id=id;
         this.bs=bs;
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +88,8 @@ private BoardingStaff bs;
 
     private void btn_doneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_doneMouseClicked
         bs.updatePetStatus(cb_pet_status.getSelectedItem().toString(),id );
+        fr.updateJTable();
+        dispose();
     }//GEN-LAST:event_btn_doneMouseClicked
 
     /**

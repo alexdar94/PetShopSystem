@@ -25,10 +25,11 @@ private ResultSet rs=null;
      */
     public Frame_Vet_View_Pet_Status() {
         initComponents();
+        updateJTable();
     }
 
     public void updateJTable(){  
-        String sql="SELECT ID,pet_name,pet_species,pet_status,pet_last_fed FROM BoadingServiceTable";
+        String sql="SELECT ID,pet_name,pet_species,pet_status,pet_last_fed FROM BoardingServiceTable";
         conn=Connect.connectDB();
         try{
             pst=conn.prepareStatement(sql);

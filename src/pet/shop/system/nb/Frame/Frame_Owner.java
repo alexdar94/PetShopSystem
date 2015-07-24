@@ -5,11 +5,22 @@
  */
 package pet.shop.system.nb.Frame;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+import pet.shop.system.nb.Connect;
+import pet.shop.system.nb.Owner;
+
 /**
  *
  * @author User
  */
 public class Frame_Owner extends javax.swing.JFrame {
+private Connection conn=null;
+private ResultSet rs=null;
+private PreparedStatement pst=null;
 
     /**
      * Creates new form Frame_Owner
@@ -114,7 +125,18 @@ public class Frame_Owner extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_create_working_timetableMouseClicked
 
     private void btn_view_pet_overnightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_pet_overnightMouseClicked
-        // TODO add your handling code here:
+        String sql=Owner.viewNumberOfPetStayingOvernight();
+        conn=Connect.connectDB();
+        int a=0;
+        try{
+            pst=conn.prepareStatement(sql);
+            rs= pst.executeQuery();
+            
+            if(rs.next()){ a=(rs.getInt("count")==0)?0:rs.getInt("count");}
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(null,"Number of pets staying overnight tonight is "+a);
     }//GEN-LAST:event_btn_view_pet_overnightMouseClicked
 
     private void btn_view_incomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_incomeMouseClicked

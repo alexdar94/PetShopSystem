@@ -8,6 +8,9 @@ package pet.shop.system.nb.Frame;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 import pet.shop.system.nb.BoardingStaff;
@@ -29,6 +32,7 @@ private BoardingStaff bs;
         initComponents();
         conn=Connect.connectDB();
         bs=new BoardingStaff();
+        updateJTable();
     }
 
     /**
@@ -119,17 +123,19 @@ private BoardingStaff bs;
 
     private void btn_last_fedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_last_fedMouseClicked
         String id=jTable_boarding.getModel().getValueAt(jTable_boarding.getSelectedRow(), 0).toString();
-        
+        bs.updatePetLastFed(id);
+        updateJTable();
     }//GEN-LAST:event_btn_last_fedMouseClicked
 
     private void btn_update_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_update_statusMouseClicked
         String id=jTable_boarding.getModel().getValueAt(jTable_boarding.getSelectedRow(), 0).toString();
-        Frame_BoardingStaff_Pet_Status fr= new Frame_BoardingStaff_Pet_Status(id,bs);
+        Frame_BoardingStaff_Pet_Status fr= new Frame_BoardingStaff_Pet_Status(this,id,bs);
         fr.setVisible(true);
     }//GEN-LAST:event_btn_update_statusMouseClicked
 
     public void updateJTable(){  
-        String sql="SELECT ID,pet_name,pet_species,pet_status,pet_last_fed FROM BoardingServiceTable";
+        String sql="SELECT ID,pet_name,pet_species,pet_status,pet_last_fed FROM BoardingServiceTable WHERE appointment_date='"
+                +new SimpleDateFormat("MMM dd yyyy").format(new Date()) +"'";
         try{
             pst=conn.prepareStatement(sql);
             rs= pst.executeQuery();

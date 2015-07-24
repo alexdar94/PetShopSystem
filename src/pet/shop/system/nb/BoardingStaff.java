@@ -8,6 +8,8 @@ package pet.shop.system.nb;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -20,16 +22,22 @@ private PreparedStatement pst=null;
 
     public void updatePetStatus(String status, String ID){
         String sql="UPDATE BoardingServiceTable SET pet_status='"+ status+"' WHERE ID='"+ID+"'";
-        conn=Connect.connectDB();
-            try{
-                pst=conn.prepareStatement(sql);
-                pst.executeUpdate();
-            }catch(Exception e){
-                
-            }
+        query(sql);
     }
     
-    public void updatePetLastFed(){
-        
+    public void updatePetLastFed(String id){
+        String sql="Update BoardingServiceTable SET pet_last_fed='"+new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime())+
+                "' WHERE ID='"+id+"'"; 
+        query(sql);
+    }
+    
+    public void query(String sql){
+        conn=Connect.connectDB();
+        try{
+            pst=conn.prepareStatement(sql);
+            pst.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

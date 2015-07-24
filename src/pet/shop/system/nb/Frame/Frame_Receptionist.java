@@ -18,9 +18,9 @@ import pet.shop.system.nb.Connect;
  * @author User
  */
 public class Frame_Receptionist extends javax.swing.JFrame {
-Connection conn=null;
-PreparedStatement pst=null;
-ResultSet rs=null;
+private static Connection conn=null;
+private static PreparedStatement pst=null;
+private static ResultSet rs=null;
 
     /**
      * Creates new form Frame_Receptionist
@@ -119,27 +119,26 @@ ResultSet rs=null;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_appointment_new, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(36, 36, 36)
                         .addComponent(btn_appointment_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addComponent(btn_appointment_cancel))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btn_appointment_cancel)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_appointment_new)
                     .addComponent(btn_appointment_edit)
                     .addComponent(btn_appointment_cancel))
-                .addGap(20, 20, 20))
+                .addGap(22, 22, 22))
         );
 
         jTabbedPane4.addTab("Appointment ", jPanel1);
@@ -158,14 +157,14 @@ ResultSet rs=null;
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(145, 145, 145)
                 .addComponent(btn_register_customer, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(522, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(btn_register_customer, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Management", jPanel4);
@@ -218,20 +217,20 @@ ResultSet rs=null;
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_boardingService_new)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_boardingService_edit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_boardingService_cancel)
-                        .addGap(0, 9, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(btn_boardingService_cancel)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_boardingService_new)
@@ -246,11 +245,13 @@ ResultSet rs=null;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -283,9 +284,8 @@ ResultSet rs=null;
     }//GEN-LAST:event_btn_appointment_cancelMouseClicked
 
     private void btn_appointment_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_appointment_editMouseClicked
-        // TODO add your handling code here:
         int row=jTable_receptionist_appointment.getSelectedRow();
-        Frame_Receptionist_Create_Appointment fca=new Frame_Receptionist_Create_Appointment();
+        Frame_Receptionist_Create_Appointment fca=new Frame_Receptionist_Create_Appointment(this);
         String id=jTable_receptionist_appointment.getModel().getValueAt(row, 0).toString();
         fca.setID(id);
         fca.setVisible(true);
@@ -293,20 +293,18 @@ ResultSet rs=null;
 
     private void btn_appointment_newMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_appointment_newMouseClicked
         // TODO add your handling code here:
-        Frame_Receptionist_Create_Appointment fca=new Frame_Receptionist_Create_Appointment();
+        Frame_Receptionist_Create_Appointment fca=new Frame_Receptionist_Create_Appointment(this);
         fca.setVisible(true);
-        int row=jTable_receptionist_appointment.getRowCount()-1;
-        int id=(int)jTable_receptionist_appointment.getModel().getValueAt(row, 0);
     }//GEN-LAST:event_btn_appointment_newMouseClicked
 
     private void btn_boardingService_newMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_boardingService_newMouseClicked
-        Frame_Receptionist_Boarding_Service frbs=new Frame_Receptionist_Boarding_Service();
+        Frame_Receptionist_Boarding_Service frbs=new Frame_Receptionist_Boarding_Service(this);
         frbs.setVisible(true);
     }//GEN-LAST:event_btn_boardingService_newMouseClicked
 
     private void btn_boardingService_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_boardingService_editMouseClicked
         int row=jTable_boarding.getSelectedRow();
-        Frame_Receptionist_Boarding_Service frbs=new Frame_Receptionist_Boarding_Service();
+        Frame_Receptionist_Boarding_Service frbs=new Frame_Receptionist_Boarding_Service(this);
         String id=jTable_boarding.getModel().getValueAt(row, 0).toString();
         frbs.setID(id);
         frbs.setVisible(true);
@@ -332,6 +330,14 @@ ResultSet rs=null;
         }
     }//GEN-LAST:event_btn_boardingService_cancelMouseClicked
 
+    public JTable getJTable_Appointment(){
+        return jTable_receptionist_appointment;
+    }
+    
+    public JTable getJTable_Boarding(){
+        return jTable_boarding;
+    }
+    
     public void updateJTable(JTable jtable){  
         String sql="SELECT ID,appointment_date,appointment_time_start,appointment_time_end,cust_first_name,pet_name,pet_species,vet_name FROM AppointmentTable";
         String sql1="SELECT ID,appointment_date,cust_first_name,pet_name,pet_species FROM BoardingServiceTable";
