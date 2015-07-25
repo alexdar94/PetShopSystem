@@ -28,7 +28,7 @@ public class Appointment extends BusinessEvent{
     private Connection conn=null;
     private PreparedStatement pst=null;
     private ResultSet rs=null;
-    private int id;
+    private long id=0;
     private Customer_Normal cn;
     private Date date;
     private String vet, startTime,endTime;

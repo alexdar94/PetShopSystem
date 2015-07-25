@@ -30,11 +30,14 @@ private BoardingStaff bs;
      */
     public Frame_BoardingStaff() {
         initComponents();
-        conn=Connect.connectDB();
-        bs=new BoardingStaff();
-        updateJTable();
     }
 
+    public Frame_BoardingStaff(BoardingStaff bs) {
+        initComponents();
+        conn=Connect.connectDB();
+        this.bs=bs;
+        updateJTable();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

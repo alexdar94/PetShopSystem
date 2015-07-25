@@ -6,6 +6,8 @@
 package pet.shop.system.nb.Frame;
 
 import pet.shop.system.nb.Enum.Enum_Species;
+import pet.shop.system.nb.Pet.Dog;
+import pet.shop.system.nb.Pet.Pet;
 import pet.shop.system.nb.Vet;
 
 /**
@@ -14,6 +16,7 @@ import pet.shop.system.nb.Vet;
  */
 public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
 private Vet vet;
+private Dog dog;
     /**
      * Creates new form Frame_Vet_HR_Dog
      */
@@ -21,9 +24,10 @@ private Vet vet;
         initComponents();
     }
 
-    public Frame_Vet_PR_Dog(Vet vet) {
+    public Frame_Vet_PR_Dog(Vet vet, Dog dog) {
         initComponents();
         this.vet=vet;
+        this.dog=dog;
     }
     /**
      * This method is called from within the constructor to initialize the form.

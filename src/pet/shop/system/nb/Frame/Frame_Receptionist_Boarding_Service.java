@@ -348,7 +348,6 @@ private int id;
             }
             jdc_boarding.setDate(obDataFormat.parse(rs.getString("appointment_date")));
             cb_pet_status.setSelectedItem(rs.getString("pet_status"));
-            System.out.println("asdasd");
             }
         }catch(Exception e){
             e.printStackTrace();

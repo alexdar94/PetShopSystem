@@ -7,8 +7,10 @@ package pet.shop.system.nb.Frame;
 
 import java.sql.*;
 import javax.swing.*;
+import pet.shop.system.nb.BoardingStaff;
 import pet.shop.system.nb.Connect;
 import pet.shop.system.nb.Owner;
+import pet.shop.system.nb.Receptionist;
 import pet.shop.system.nb.Vet;
 /**
  *
@@ -98,28 +100,36 @@ PreparedStatement pst=null;
             rs=pst.executeQuery();
             
             if(rs.next()){
-                JOptionPane.showMessageDialog(null,"Login successfully");
+                if(rs.getString("role").equals("owner")){
+                    JOptionPane.showMessageDialog(null,"Welcome Boss!");
+                    Frame_Owner fo=new Frame_Owner();
+                    fo.setVisible(true);
+                }else if(rs.getString("role").equals("receptionist")){
+                    Receptionist receptionist=new Receptionist(rs.getString("first_name"),rs.getString("last_name"),rs.getString("address"),
+                    rs.getString("contact"),rs.getString("email"));
+                    JOptionPane.showMessageDialog(null,"Welcome "+receptionist.getFirstName()+" "+receptionist.getLastName());
+                    Frame_Receptionist fr= new Frame_Receptionist(receptionist);
+                    fr.setVisible(true);
+                }else if(rs.getString("role").equals("vet")){
+                    Vet vet=new Vet(rs.getString("first_name"),rs.getString("last_name"),rs.getString("address"),
+                    rs.getString("contact"),rs.getString("email"));
+                    JOptionPane.showMessageDialog(null,"Welcome "+vet.getFirstName()+" "+vet.getLastName());
+                    Frame_Vet fv= new Frame_Vet(vet);
+                    fv.setVisible(true);
+                }else if(rs.getString("role").equals("boarding stuff")){
+                    BoardingStaff boardingStaff=new BoardingStaff(rs.getString("first_name"),rs.getString("last_name"),rs.getString("address"),
+                    rs.getString("contact"),rs.getString("email"));
+                    JOptionPane.showMessageDialog(null,"Welcome "+boardingStaff.getFirstName()+" "+boardingStaff.getLastName());
+                    Frame_BoardingStaff fbs= new Frame_BoardingStaff(boardingStaff);
+                    fbs.setVisible(true);
+                }
             }else{
                 JOptionPane.showMessageDialog(null,"Invalid username or password.");
             }
             
-            if(rs.getString("role").equals("owner")){
-                Frame_Owner fo=new Frame_Owner();
-                fo.setVisible(true);
-            }else if(rs.getString("role").equals("receptionist")){
-                Frame_Receptionist fr= new Frame_Receptionist();
-                fr.setVisible(true);
-            }else if(rs.getString("role").equals("vet")){
-                Vet vet=new Vet(rs.getString("first_name"),rs.getString("last_name"),rs.getString("address"),
-                rs.getString("contact"),rs.getString("email"));
-                Frame_Vet fv= new Frame_Vet(vet);
-                fv.setVisible(true);
-            }else if(rs.getString("role").equals("boarding stuff")){
-                Frame_BoardingStaff fbs= new Frame_BoardingStaff();
-                fbs.setVisible(true);
-            }
-        }catch(Exception e){
             
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }//GEN-LAST:event_btn_loginMouseClicked
 

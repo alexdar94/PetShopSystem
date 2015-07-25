@@ -33,6 +33,8 @@ private PreparedStatement pst=null;
 private List<Enum_Species> expertises= new ArrayList<Enum_Species>();
 private List<Boolean> expertisesBooleans= new ArrayList<Boolean>();
 private int numberOfPetSeen;
+private Pet pet= new Pet();
+
     public Vet() {}
 
     public Vet(String firstName){setFirstName(firstName);setExpertise();}
@@ -44,15 +46,20 @@ private int numberOfPetSeen;
     
     public void petHealthReport(Enum_Species species){
         switch(species){
-                    case Dog:   Frame_Vet_PR_Dog fd=new Frame_Vet_PR_Dog(this);
+                    case Dog:   Dog dog=(Dog)pet;
+                                Frame_Vet_PR_Dog fd=new Frame_Vet_PR_Dog(this, dog);
                                 fd.setVisible(true);break;
-                    case Cat:   Frame_Vet_PR_Cat fc=new Frame_Vet_PR_Cat(this);
+                    case Cat:   Cat cat=(Cat)pet;
+                                Frame_Vet_PR_Cat fc=new Frame_Vet_PR_Cat(this);
                                 fc.setVisible(true);break;
-                    case Rabbit:Frame_Vet_PR_Rabbit fr=new Frame_Vet_PR_Rabbit(this);
+                    case Rabbit:Rabbit rabbit= (Rabbit)pet;
+                                Frame_Vet_PR_Rabbit fr=new Frame_Vet_PR_Rabbit(this);
                                 fr.setVisible(true);break;
-                    case Lizard:Frame_Vet_PR_Lizard fl=new Frame_Vet_PR_Lizard(this);
+                    case Lizard:Lizard lizard=(Lizard)pet;
+                                Frame_Vet_PR_Lizard fl=new Frame_Vet_PR_Lizard(this);
                                 fl.setVisible(true);break;
-                    case Bird:  Frame_Vet_PR_Bird fb=new Frame_Vet_PR_Bird(this);
+                    case Bird:  Bird bird=(Bird)pet;
+                                Frame_Vet_PR_Bird fb=new Frame_Vet_PR_Bird(this);
                                 fb.setVisible(true);break;
                     default:break;
                 }

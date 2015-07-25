@@ -20,6 +20,12 @@ private Connection conn=null;
 private ResultSet rs=null;
 private PreparedStatement pst=null;
 
+    public BoardingStaff(){}
+    
+    public BoardingStaff(String firstName, String lastName, String address, String contact, String email){
+        super(firstName, lastName, address, contact, email);
+    }
+    
     public void updatePetStatus(String status, String ID){
         String sql="UPDATE BoardingServiceTable SET pet_status='"+ status+"' WHERE ID='"+ID+"'";
         query(sql);
