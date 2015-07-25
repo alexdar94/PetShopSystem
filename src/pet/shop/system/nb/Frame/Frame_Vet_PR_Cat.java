@@ -58,7 +58,7 @@ private Vet vet;
 
         jCheckBox11.setText("Yes");
 
-        jLabel3.setText("Coughing, sneezing or gagging?");
+        jLabel3.setText("Abnormal cardiovascular?");
 
         jCheckBox12.setText("No");
 
@@ -66,7 +66,7 @@ private Vet vet;
 
         jCheckBox6.setText("No");
 
-        jLabel4.setText("Bad breath?");
+        jLabel4.setText("Diet");
 
         jLabel5.setText("Hair loss?");
 
@@ -122,7 +122,7 @@ private Vet vet;
                                 .addComponent(jCheckBox4))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                         .addComponent(jCheckBox5)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBox6))

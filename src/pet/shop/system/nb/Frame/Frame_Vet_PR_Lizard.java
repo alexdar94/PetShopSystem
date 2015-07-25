@@ -65,13 +65,13 @@ private Vet vet;
 
         no1.setText("No");
 
-        jLabel3.setText("Coughing, sneezing or gagging?");
+        jLabel3.setText("Paws and claws condition");
 
         yes4.setText("Yes");
 
         no6.setText("No");
 
-        jLabel2.setText("Any recent vomitting?");
+        jLabel2.setText("Abnormal heart condition?");
 
         yes3.setText("Yes");
 
@@ -81,11 +81,11 @@ private Vet vet;
 
         yes2.setText("Yes");
 
-        jLabel4.setText("Bad breath?");
+        jLabel4.setText("Consuming low purine food recently?");
 
         jLabel6.setText("Diarrhea");
 
-        jLabel5.setText("Hair loss?");
+        jLabel5.setText("Damaged ligament? ");
 
         no2.setText("No");
 
@@ -128,7 +128,7 @@ private Vet vet;
                                 .addComponent(no2))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                         .addComponent(yes3)
                         .addGap(18, 18, 18)
                         .addComponent(no3))

@@ -71,7 +71,7 @@ private Vet vet;
 
         no6.setText("No");
 
-        jLabel2.setText("Any recent vomitting?");
+        jLabel2.setText("Urinary inconsistance?");
 
         yes3.setText("Yes");
 
@@ -81,7 +81,7 @@ private Vet vet;
 
         yes2.setText("Yes");
 
-        jLabel4.setText("Bad breath?");
+        jLabel4.setText("Eye disease?");
 
         jLabel6.setText("Diarrhea");
 

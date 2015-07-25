@@ -116,18 +116,18 @@ PreparedStatement pst=null;
                     JOptionPane.showMessageDialog(null,"Welcome "+vet.getFirstName()+" "+vet.getLastName());
                     Frame_Vet fv= new Frame_Vet(vet);
                     fv.setVisible(true);
-                }else if(rs.getString("role").equals("boarding stuff")){
+                }else if(rs.getString("role").equals("boarding staff")){
                     BoardingStaff boardingStaff=new BoardingStaff(rs.getString("first_name"),rs.getString("last_name"),rs.getString("address"),
                     rs.getString("contact"),rs.getString("email"));
                     JOptionPane.showMessageDialog(null,"Welcome "+boardingStaff.getFirstName()+" "+boardingStaff.getLastName());
                     Frame_BoardingStaff fbs= new Frame_BoardingStaff(boardingStaff);
                     fbs.setVisible(true);
+                }else if(rs.getString("role").equals("member")){
+                   
                 }
             }else{
                 JOptionPane.showMessageDialog(null,"Invalid username or password.");
             }
-            
-            
         }catch(Exception e){
             e.printStackTrace();
         }

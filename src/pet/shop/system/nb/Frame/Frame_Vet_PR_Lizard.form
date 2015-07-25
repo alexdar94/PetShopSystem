@@ -51,7 +51,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="129" max="32767" attributes="0"/>
+                      <EmptySpace pref="161" max="32767" attributes="0"/>
                       <Component id="yes3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="no3" min="-2" max="-2" attributes="0"/>
@@ -161,7 +161,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Coughing, sneezing or gagging?"/>
+        <Property name="text" type="java.lang.String" value="Paws and claws condition"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="yes4">
@@ -176,7 +176,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Any recent vomitting?"/>
+        <Property name="text" type="java.lang.String" value="Abnormal heart condition?"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="yes3">
@@ -201,7 +201,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Bad breath?"/>
+        <Property name="text" type="java.lang.String" value="Consuming low purine food recently?"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -211,7 +211,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Hair loss?"/>
+        <Property name="text" type="java.lang.String" value="Damaged ligament? "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="no2">

@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btn_new_boarding_stuff" max="32767" attributes="0"/>
+                  <Component id="btn_new_boarding_staff" max="32767" attributes="0"/>
                   <Component id="btn_new_vet" alignment="0" max="32767" attributes="0"/>
                   <Component id="btn_new_member" alignment="0" max="32767" attributes="0"/>
                   <Component id="btn_new_receptionist" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
@@ -41,7 +41,7 @@
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="btn_new_receptionist" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btn_new_boarding_stuff" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_new_boarding_staff" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btn_new_vet" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -56,21 +56,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Receptionist"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_new_receptionistMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_new_boarding_stuff">
+    <Component class="javax.swing.JButton" name="btn_new_boarding_staff">
       <Properties>
         <Property name="text" type="java.lang.String" value="Boarding Staff"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_new_boarding_staffMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_new_vet">
       <Properties>
         <Property name="text" type="java.lang.String" value="Vet"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_new_vetMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_new_member">
       <Properties>
         <Property name="text" type="java.lang.String" value="Member"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_new_memberMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

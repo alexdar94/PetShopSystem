@@ -28,19 +28,39 @@ public class Frame_Owner_Choose_User extends javax.swing.JFrame {
     private void initComponents() {
 
         btn_new_receptionist = new javax.swing.JButton();
-        btn_new_boarding_stuff = new javax.swing.JButton();
+        btn_new_boarding_staff = new javax.swing.JButton();
         btn_new_vet = new javax.swing.JButton();
         btn_new_member = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_new_receptionist.setText("Receptionist");
+        btn_new_receptionist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_new_receptionistMouseClicked(evt);
+            }
+        });
 
-        btn_new_boarding_stuff.setText("Boarding Staff");
+        btn_new_boarding_staff.setText("Boarding Staff");
+        btn_new_boarding_staff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_new_boarding_staffMouseClicked(evt);
+            }
+        });
 
         btn_new_vet.setText("Vet");
+        btn_new_vet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_new_vetMouseClicked(evt);
+            }
+        });
 
         btn_new_member.setText("Member");
+        btn_new_member.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_new_memberMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,7 +69,7 @@ public class Frame_Owner_Choose_User extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_new_boarding_stuff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_new_boarding_staff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_new_vet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_new_member, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_new_receptionist, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -61,7 +81,7 @@ public class Frame_Owner_Choose_User extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(btn_new_receptionist)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_new_boarding_stuff)
+                .addComponent(btn_new_boarding_staff)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_new_vet)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -71,6 +91,30 @@ public class Frame_Owner_Choose_User extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_new_receptionistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_new_receptionistMouseClicked
+        Frame_Owner_Create_New_User fr=new Frame_Owner_Create_New_User("receptionist");
+        fr.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_new_receptionistMouseClicked
+
+    private void btn_new_boarding_staffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_new_boarding_staffMouseClicked
+        Frame_Owner_Create_New_User fr=new Frame_Owner_Create_New_User("boarding staff");
+        fr.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_new_boarding_staffMouseClicked
+
+    private void btn_new_vetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_new_vetMouseClicked
+        Frame_Owner_Create_New_User fr=new Frame_Owner_Create_New_User("vet");
+        fr.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_new_vetMouseClicked
+
+    private void btn_new_memberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_new_memberMouseClicked
+        Frame_Owner_Create_New_User fr=new Frame_Owner_Create_New_User("member");
+        fr.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_new_memberMouseClicked
 
     /**
      * @param args the command line arguments
@@ -108,7 +152,7 @@ public class Frame_Owner_Choose_User extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_new_boarding_stuff;
+    private javax.swing.JButton btn_new_boarding_staff;
     private javax.swing.JButton btn_new_member;
     private javax.swing.JButton btn_new_receptionist;
     private javax.swing.JButton btn_new_vet;
