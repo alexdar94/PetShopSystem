@@ -107,7 +107,7 @@ public class Appointment extends BusinessEvent{
     
     public void updateProfitReport(double amount){
         String sql="INSERT INTO ProfitTable VALUES('"+new SimpleDateFormat("MMM dd yyyy").format(date)+"','"+
-                   cn.getPetSpecies()+"','"+amount+"','"+vet+"')";
+                   cn.getPetSpecies()+"',"+amount+",'"+vet+"')";
         conn=Connect.connectDB();
         try{
         pst=conn.prepareStatement(sql);

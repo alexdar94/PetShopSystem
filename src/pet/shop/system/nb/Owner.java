@@ -26,6 +26,10 @@ public abstract class Owner extends User{
         return "SELECT Date,Species,Amount,Staff FROM ProfitTable"; 
     }
     
+    public static String viewTotalIncomeGenerated(){
+        return "SELECT SUM (Amount) AS total FROM ProfitTable";
+    }
+    
     public static String viewNumberOfPetStayingOvernight(){
         return "SELECT COUNT(appointment_date) AS count FROM BoardingServiceTable WHERE appointment_date='"+new SimpleDateFormat("MMM dd yyyy").format(new Date())+"'";
     }

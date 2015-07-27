@@ -9,6 +9,10 @@ import java.sql.*;
 import javax.swing.*;
 import pet.shop.system.nb.BoardingStaff;
 import pet.shop.system.nb.Connect;
+import pet.shop.system.nb.Customer_Member;
+import pet.shop.system.nb.Enum.Enum_Domestic_Exotic;
+import pet.shop.system.nb.Enum.Enum_Gender;
+import pet.shop.system.nb.Enum.Enum_Species;
 import pet.shop.system.nb.Owner;
 import pet.shop.system.nb.Receptionist;
 import pet.shop.system.nb.Vet;
@@ -123,7 +127,10 @@ PreparedStatement pst=null;
                     Frame_BoardingStaff fbs= new Frame_BoardingStaff(boardingStaff);
                     fbs.setVisible(true);
                 }else if(rs.getString("role").equals("member")){
-                   
+                    Customer_Member cm= new Customer_Member();
+                    JOptionPane.showMessageDialog(null,"Welcome!");
+                    Frame_Member fr=new Frame_Member(cm);
+                    fr.setVisible(true);
                 }
             }else{
                 JOptionPane.showMessageDialog(null,"Invalid username or password.");

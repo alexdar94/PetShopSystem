@@ -18,6 +18,8 @@ public class Customer_Member extends Customer_Normal{
     private Pet pet;
     private static double discount=0.85;
     
+    public Customer_Member(){}
+    
     public Customer_Member(String firstName, String lastName, String address, String contact, 
             String email, String username, String password,String petName,String age, String weight,
             Enum_Species species,Enum_Gender gender, Enum_Domestic_Exotic doe){

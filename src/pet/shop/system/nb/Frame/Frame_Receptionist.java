@@ -28,6 +28,8 @@ private Receptionist receptionist;
      */
     public Frame_Receptionist(){
         initComponents();
+        updateJTable(jTable_receptionist_appointment);
+        updateJTable(jTable_receptionist_boarding);
     }
     
     public Frame_Receptionist(Receptionist receptionist) {
@@ -128,9 +130,9 @@ private Receptionist receptionist;
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_appointment_new, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btn_appointment_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_appointment_new, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btn_appointment_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(btn_appointment_cancel)))
                 .addContainerGap())

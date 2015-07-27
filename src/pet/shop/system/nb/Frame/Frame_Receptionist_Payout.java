@@ -141,6 +141,7 @@ private BoardingService boarding;
             if(boarding!=null)boarding.payout();
         }
         this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_btn_payMouseClicked
 
     /**

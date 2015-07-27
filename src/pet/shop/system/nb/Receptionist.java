@@ -22,7 +22,7 @@ private static ResultSet rs=null;
     public Receptionist(){}
     
     public Receptionist(String firstName, String lastName, String address, String contact, String email){
-         super(firstName, lastName, address, contact, email);
+         super(firstName, lastName, address, contact, email);      
          conn=Connect.connectDB();
     }
     
@@ -44,7 +44,7 @@ private static ResultSet rs=null;
             pst.execute();
             JOptionPane.showMessageDialog(null,"Appointment canceled");
         }catch(Exception e){
-
+            e.printStackTrace();
         }
     }
 }

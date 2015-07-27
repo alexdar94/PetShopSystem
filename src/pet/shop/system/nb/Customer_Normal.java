@@ -21,6 +21,8 @@ import pet.shop.system.nb.Pet.Rabbit;
 public class Customer_Normal extends User{
     private Pet pet;
     //Normal customer
+    public Customer_Normal(){}
+    
     public Customer_Normal(String firstName, String lastName, String address, String contact, 
             String email, String petName,Enum_Species species,Enum_Domestic_Exotic doe){
         super(firstName, lastName, address, contact, email);

@@ -102,7 +102,7 @@ public class BoardingService extends BusinessEvent{
     
     public void updateProfitReport(double amount){
         String sql="INSERT INTO ProfitTable VALUES('"+new SimpleDateFormat("MMM dd yyyy").format(date)+"','"+
-                   cn.getPetSpecies()+"','"+amount+"','Boarding Staff')";
+                   cn.getPetSpecies()+"',"+amount+",'Boarding Staff')";
         conn=Connect.connectDB();
         try{
         pst=conn.prepareStatement(sql);

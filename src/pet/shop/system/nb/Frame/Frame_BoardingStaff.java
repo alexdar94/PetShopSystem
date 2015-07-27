@@ -52,7 +52,7 @@ private BoardingStaff bs;
         btn_last_fed = new javax.swing.JButton();
         btn_update_status = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable_boarding.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -27,6 +27,7 @@ private ResultSet rs=null;
         initComponents();
         conn=Connect.connectDB();
         updateJTable();
+        lbl_income.setText("$ "+showTotal()+"");
     }
 
     public void updateJTable(){  
@@ -37,6 +38,19 @@ private ResultSet rs=null;
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    
+    public double showTotal(){
+        try{
+            String sql=Owner.viewTotalIncomeGenerated();
+            pst=conn.prepareStatement(sql);
+            rs= pst.executeQuery();
+            if(rs.next()){ return rs.getDouble("total");}
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return 0;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,6 +64,10 @@ private ResultSet rs=null;
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Income = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        lbl_income = new javax.swing.JLabel();
+        btn_done = new javax.swing.JButton();
+        lbl_income_generated = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +86,17 @@ private ResultSet rs=null;
         ));
         jScrollPane1.setViewportView(jTable_Income);
 
+        jLabel2.setText("Income generated: ");
+
+        btn_done.setText("Done");
+        btn_done.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_doneMouseClicked(evt);
+            }
+        });
+
+        lbl_income_generated.setText("  ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,22 +104,44 @@ private ResultSet rs=null;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_income_generated)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_income)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_done)
+                        .addGap(26, 26, 26))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 15, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lbl_income)
+                    .addComponent(btn_done)
+                    .addComponent(lbl_income_generated))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_doneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_doneMouseClicked
+        dispose();
+    }//GEN-LAST:event_btn_doneMouseClicked
 
     /**
      * @param args the command line arguments
@@ -129,8 +180,12 @@ private ResultSet rs=null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_done;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_Income;
+    private javax.swing.JLabel lbl_income;
+    private javax.swing.JLabel lbl_income_generated;
     // End of variables declaration//GEN-END:variables
 }
