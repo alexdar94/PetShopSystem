@@ -6,6 +6,7 @@
 package pet.shop.system.nb.Frame;
 
 import pet.shop.system.nb.Enum.Enum_Species;
+import pet.shop.system.nb.Appointment;
 import pet.shop.system.nb.Pet.Dog;
 import pet.shop.system.nb.Pet.Pet;
 import pet.shop.system.nb.Vet;
@@ -16,7 +17,7 @@ import pet.shop.system.nb.Vet;
  */
 public class Frame_Vet_PR_Dog extends javax.swing.JFrame {
 private Vet vet;
-private Dog dog;
+private Appointment appointment;
     /**
      * Creates new form Frame_Vet_HR_Dog
      */
@@ -24,10 +25,10 @@ private Dog dog;
         initComponents();
     }
 
-    public Frame_Vet_PR_Dog(Vet vet, Dog dog) {
+    public Frame_Vet_PR_Dog(Vet vet, Appointment appointment) {
         initComponents();
         this.vet=vet;
-        this.dog=dog;
+        this.appointment=appointment;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -205,7 +206,7 @@ private Dog dog;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_diagnosisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_diagnosisMouseClicked
-        Frame_Vet_DR dr= new Frame_Vet_DR(vet,Enum_Species.Dog);
+        Frame_Vet_DR dr= new Frame_Vet_DR(vet,Enum_Species.Dog,appointment);
         dr.setVisible(true);
     }//GEN-LAST:event_btn_diagnosisMouseClicked
 

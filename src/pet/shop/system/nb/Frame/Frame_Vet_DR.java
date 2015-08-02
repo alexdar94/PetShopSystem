@@ -7,7 +7,7 @@ package pet.shop.system.nb.Frame;
 
 import pet.shop.system.nb.Enum.Enum_Species;
 import pet.shop.system.nb.Vet;
-
+import pet.shop.system.nb.Appointment;
 /**
  *
  * @author User
@@ -15,6 +15,7 @@ import pet.shop.system.nb.Vet;
 public class Frame_Vet_DR extends javax.swing.JFrame {
 private Vet vet;
 private Enum_Species species;
+private Appointment appointment;
     /**
      * Creates new form Frame_Vet_DR
      */
@@ -22,10 +23,11 @@ private Enum_Species species;
         initComponents();
     }
 
-    public Frame_Vet_DR(Vet vet, Enum_Species species) {
+    public Frame_Vet_DR(Vet vet, Enum_Species species, Appointment appointment) {
         initComponents();
         this.vet=vet;
         this.species=species;
+        this.appointment=appointment;
     }
     
     /**
@@ -106,6 +108,8 @@ private Enum_Species species;
 
     private void btn_PD_report_doneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PD_report_doneMouseClicked
         vet.setNumberOfPetSeen(species);
+        Frame_Vet_Payout fr= new Frame_Vet_Payout(appointment);
+        fr.setVisible(true);
     }//GEN-LAST:event_btn_PD_report_doneMouseClicked
 
     /**

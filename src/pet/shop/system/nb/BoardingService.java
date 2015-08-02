@@ -41,15 +41,15 @@ public class BoardingService extends BusinessEvent{
     @Override
     public double getCharge(){
         if(cn.getPet() instanceof Dog){
-            return Dog.getCharge(0);
+            return Dog.getCharge();
         }else if(cn.getPet() instanceof Cat){
-            return Cat.getCharge(0);
+            return Cat.getCharge();
         }else if(cn.getPet() instanceof Rabbit){
-            return Rabbit.getCharge(0);
+            return Rabbit.getCharge();
         }else if(cn.getPet() instanceof Lizard){
-            return Lizard.getCharge(0);
+            return Lizard.getCharge();
         }else if(cn.getPet() instanceof Bird){
-            return Bird.getCharge(0);
+            return Bird.getCharge();
         }else{
             return -1;
         }
@@ -57,15 +57,15 @@ public class BoardingService extends BusinessEvent{
     
     public double getCharge(double discount){
         if(cn.getPet() instanceof Dog){
-            return Dog.getCharge(0)*discount;
+            return Dog.getCharge()*discount;
         }else if(cn.getPet() instanceof Cat){
-            return Cat.getCharge(0)*discount;
+            return Cat.getCharge()*discount;
         }else if(cn.getPet() instanceof Rabbit){
-            return Rabbit.getCharge(0)*discount;
+            return Rabbit.getCharge()*discount;
         }else if(cn.getPet() instanceof Lizard){
-            return Lizard.getCharge(0)*discount;
+            return Lizard.getCharge()*discount;
         }else if(cn.getPet() instanceof Bird){
-            return Bird.getCharge(0)*discount;
+            return Bird.getCharge()*discount;
         }else{
             return -1;
         }
@@ -74,29 +74,29 @@ public class BoardingService extends BusinessEvent{
     @Override
     public void payout(){
         if(cn.getPet() instanceof Dog){
-            updateProfitReport(Dog.getCharge(0));
+            updateProfitReport(Dog.getCharge());
         }else if(cn.getPet() instanceof Cat){
-            updateProfitReport(Cat.getCharge(0));
+            updateProfitReport(Cat.getCharge());
         }else if(cn.getPet() instanceof Rabbit){
-            updateProfitReport(Rabbit.getCharge(0));
+            updateProfitReport(Rabbit.getCharge());
         }else if(cn.getPet() instanceof Lizard){
-            updateProfitReport(Lizard.getCharge(0));
+            updateProfitReport(Lizard.getCharge());
         }else if(cn.getPet() instanceof Bird){
-            updateProfitReport(Bird.getCharge(0));
+            updateProfitReport(Bird.getCharge());
         }
     }
     
     public void payout(double discount){
         if(cn.getPet() instanceof Dog){
-            updateProfitReport(Dog.getCharge(0)*discount);
+            updateProfitReport(Dog.getCharge()*discount);
         }else if(cn.getPet() instanceof Cat){
-            updateProfitReport(Cat.getCharge(0)*discount);
+            updateProfitReport(Cat.getCharge()*discount);
         }else if(cn.getPet() instanceof Rabbit){
-            updateProfitReport(Rabbit.getCharge(0)*discount);
+            updateProfitReport(Rabbit.getCharge()*discount);
         }else if(cn.getPet() instanceof Lizard){
-            updateProfitReport(Lizard.getCharge(0)*discount);
+            updateProfitReport(Lizard.getCharge()*discount);
         }else if(cn.getPet() instanceof Bird){
-            updateProfitReport(Bird.getCharge(0)*discount);
+            updateProfitReport(Bird.getCharge()*discount);
         }
     }
     

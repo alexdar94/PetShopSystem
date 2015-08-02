@@ -13,18 +13,15 @@ import pet.shop.system.nb.Enum.Enum_Species;
  * @author User
  */
 public class Cat extends Pet{
-private static double charge_appointment=100;
 private static double charge_boarding=60;
 
+    public Cat(){}
+    
     public Cat(String name,Enum_Species species,Enum_Domestic_Exotic doe) {
         super(name, species, doe);
     }
     
-    public static double getCharge(int x){
-        if(x==1){
-            return charge_appointment;
-        }else{
+    public static double getCharge(){
             return charge_boarding;
-        }     
     }
 }

@@ -39,19 +39,6 @@ private BoardingService boarding;
         });
     }
     
-    public Frame_Receptionist_Payout(Appointment appointment) {
-        initComponents();
-        this.appointment=appointment;
-        lbl_amount.setText("$"+appointment.getCharge()+"");
-        
-        cb_member.addActionListener((ActionEvent e) -> {
-            if(cb_member.isSelected()){
-                lbl_amount.setText("$"+appointment.getCharge(Customer_Member.getDiscount())+"");
-            }else{
-                lbl_amount.setText("$"+appointment.getCharge()+"");
-            }
-        });
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,10 +121,8 @@ private BoardingService boarding;
 
     private void btn_payMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_payMouseClicked
         if(cb_member.isSelected()){
-            if(appointment!=null)appointment.payout(Customer_Member.getDiscount());
             if(boarding!=null)boarding.payout(Customer_Member.getDiscount());
         }else{
-            if(appointment!=null)appointment.payout();
             if(boarding!=null)boarding.payout();
         }
         this.setVisible(false);

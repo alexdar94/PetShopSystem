@@ -44,22 +44,18 @@ private Pet pet= new Pet();
         setExpertise();
     }
     
-    public void petHealthReport(Enum_Species species){
+    public void petHealthReport(Enum_Species species, Appointment appointment){
         switch(species){
-                    case Dog:   Dog dog=(Dog)pet;
-                                Frame_Vet_PR_Dog fd=new Frame_Vet_PR_Dog(this, dog);
+                    case Dog:   Dog dog=new Dog(); pet=(Pet)dog;
+                                Frame_Vet_PR_Dog fd=new Frame_Vet_PR_Dog(this,appointment);
                                 fd.setVisible(true);break;
-                    case Cat:   Cat cat=(Cat)pet;
-                                Frame_Vet_PR_Cat fc=new Frame_Vet_PR_Cat(this);
+                    case Cat:   Frame_Vet_PR_Cat fc=new Frame_Vet_PR_Cat(this,appointment);
                                 fc.setVisible(true);break;
-                    case Rabbit:Rabbit rabbit= (Rabbit)pet;
-                                Frame_Vet_PR_Rabbit fr=new Frame_Vet_PR_Rabbit(this);
+                    case Rabbit:Frame_Vet_PR_Rabbit fr=new Frame_Vet_PR_Rabbit(this,appointment);
                                 fr.setVisible(true);break;
-                    case Lizard:Lizard lizard=(Lizard)pet;
-                                Frame_Vet_PR_Lizard fl=new Frame_Vet_PR_Lizard(this);
+                    case Lizard:Frame_Vet_PR_Lizard fl=new Frame_Vet_PR_Lizard(this,appointment);
                                 fl.setVisible(true);break;
-                    case Bird:  Bird bird=(Bird)pet;
-                                Frame_Vet_PR_Bird fb=new Frame_Vet_PR_Bird(this);
+                    case Bird:  Frame_Vet_PR_Bird fb=new Frame_Vet_PR_Bird(this,appointment);
                                 fb.setVisible(true);break;
                     default:break;
                 }
@@ -121,7 +117,7 @@ private Pet pet= new Pet();
     public void setNumberOfPetSeen(Enum_Species species){
         numberOfPetSeen=getNumberOfPetSeen(species)+1;
         String sql="UPDATE VetDetails SET number_of_"+species.toString().toLowerCase()+"_seen="+numberOfPetSeen+
-                   "WHERE first_name='"+getFirstName()+"'";
+                   " WHERE first_name='"+getFirstName()+"'";
         conn=Connect.connectDB();
         try{
                 pst=conn.prepareStatement(sql);

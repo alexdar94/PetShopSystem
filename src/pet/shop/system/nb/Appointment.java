@@ -13,6 +13,7 @@ import pet.shop.system.nb.Enum.Enum_Species;
 import pet.shop.system.nb.Enum.Enum_Domestic_Exotic;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import org.apache.commons.lang.CharRange;
 import pet.shop.system.nb.Pet.Bird;
 import pet.shop.system.nb.Pet.Cat;
 import pet.shop.system.nb.Pet.Dog;
@@ -32,6 +33,7 @@ public class Appointment extends BusinessEvent{
     private Customer_Normal cn;
     private Date date;
     private String vet, startTime,endTime;
+    private double charge;
     
     public Appointment(int id,String firstName, String lastName, String address, String contact, 
             String email, String petName,Enum_Species species,Enum_Domestic_Exotic de, String vet, Date date,String startTime,String endTime){
@@ -44,65 +46,19 @@ public class Appointment extends BusinessEvent{
     }
     
     @Override
-    public double getCharge(){
-        if(cn.getPet() instanceof Dog){
-            return Dog.getCharge(1);
-        }else if(cn.getPet() instanceof Cat){
-            return Dog.getCharge(1);
-        }else if(cn.getPet() instanceof Rabbit){
-            return Dog.getCharge(1);
-        }else if(cn.getPet() instanceof Lizard){
-            return Dog.getCharge(1);
-        }else if(cn.getPet() instanceof Bird){
-            return Dog.getCharge(1);
-        }else{
-            return -1;
-        }
+    public double getCharge(){return 10;}
+    
+    public void getCharge(double charge){
+        this.charge=charge;
     }
     
-    public double getCharge(double discount){
-        if(cn.getPet() instanceof Dog){
-            return Dog.getCharge(1)*discount;
-        }else if(cn.getPet() instanceof Cat){
-            return Cat.getCharge(1)*discount;
-        }else if(cn.getPet() instanceof Rabbit){
-            return Rabbit.getCharge(1)*discount;
-        }else if(cn.getPet() instanceof Lizard){
-            return Lizard.getCharge(1)*discount;
-        }else if(cn.getPet() instanceof Bird){
-            return Bird.getCharge(1)*discount;
-        }else{
-            return -1;
-        }
+    public void getCharge(double charge, double discount){
+         this.charge=charge*discount;
     }
     
     @Override
     public void payout(){
-        if(cn.getPet() instanceof Dog){
-            updateProfitReport(Dog.getCharge(1));
-        }else if(cn.getPet() instanceof Cat){
-            updateProfitReport(Cat.getCharge(1));
-        }else if(cn.getPet() instanceof Rabbit){
-            updateProfitReport(Rabbit.getCharge(1));
-        }else if(cn.getPet() instanceof Lizard){
-            updateProfitReport(Lizard.getCharge(1));
-        }else if(cn.getPet() instanceof Bird){
-            updateProfitReport(Bird.getCharge(1));
-        }
-    }
-    
-    public void payout(double discount){
-        if(cn.getPet() instanceof Dog){
-            updateProfitReport(Dog.getCharge(1)*discount);
-        }else if(cn.getPet() instanceof Cat){
-            updateProfitReport(Cat.getCharge(1)*discount);
-        }else if(cn.getPet() instanceof Rabbit){
-            updateProfitReport(Rabbit.getCharge(1)*discount);
-        }else if(cn.getPet() instanceof Lizard){
-            updateProfitReport(Lizard.getCharge(1)*discount);
-        }else if(cn.getPet() instanceof Bird){
-            updateProfitReport(Bird.getCharge(1)*discount);
-        }
+        updateProfitReport(charge);
     }
     
     public void updateProfitReport(double amount){

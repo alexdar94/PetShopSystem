@@ -8,9 +8,12 @@ package pet.shop.system.nb.Frame;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import pet.shop.system.nb.Appointment;
 import pet.shop.system.nb.Connect;
+import pet.shop.system.nb.Enum.Enum_Domestic_Exotic;
 import pet.shop.system.nb.Enum.Enum_Species;
 import pet.shop.system.nb.Vet;
 
@@ -23,6 +26,7 @@ private Connection conn=null;
 private PreparedStatement pst=null;
 private ResultSet rs=null;
 private Vet vet;
+private Appointment appointment;
     /**
      * Creates new form Frame_Vet
      */
@@ -32,7 +36,8 @@ private Vet vet;
     
     public Frame_Vet(Vet vet) {
         initComponents();
-        this.vet=vet;      
+        this.vet=vet;   
+        updateJTable();
     }
 
     /**
@@ -128,8 +133,25 @@ private Vet vet;
 
     private void btn_consultMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_consultMouseClicked
         int row=jTable_vet.getSelectedRow();
+        String id=jTable_vet.getModel().getValueAt(row, 0).toString();
+        String sql="SELECT * FROM AppointmentTable WHERE ID='"+id+"'";
+        conn=Connect.connectDB();
+        try{
+            pst=conn.prepareStatement(sql);
+            rs= pst.executeQuery();
+            
+            if(rs.next()){
+                 appointment=new Appointment(Integer.parseInt(rs.getString("ID")),rs.getString("cust_first_name"), rs.getString("cust_last_name"), 
+                         rs.getString("cust_address"), rs.getString("cust_contact"), rs.getString("cust_email"), rs.getString("pet_name"),
+                         Enum_Species.valueOf(rs.getString("pet_species")), null, rs.getString("vet_name"), new SimpleDateFormat("MMM dd yyyy").parse(rs.getString("appointment_date")),
+                         null, null);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+               
         Enum_Species species=Enum_Species.valueOf(jTable_vet.getModel().getValueAt(row, 5).toString());
-        vet.petHealthReport(species);
+        vet.petHealthReport(species,appointment);
     }//GEN-LAST:event_btn_consultMouseClicked
 
     private void btn_view_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_view_statusMouseClicked
@@ -138,8 +160,8 @@ private Vet vet;
     }//GEN-LAST:event_btn_view_statusMouseClicked
 
     public void updateJTable(){  
-        String sql="SELECT ID,appointment_date,appointment_time_start,appointment_time_end,pet_name,pet_species FROM AppointmentTable"
-                + "WHERE vet_name="+vet.getName();
+        String sql="SELECT ID,appointment_date,appointment_time_start,appointment_time_end,pet_name,pet_species FROM AppointmentTable "
+                + "WHERE vet_name='"+vet.getName()+"'";
         conn=Connect.connectDB();
         try{
             pst=conn.prepareStatement(sql);

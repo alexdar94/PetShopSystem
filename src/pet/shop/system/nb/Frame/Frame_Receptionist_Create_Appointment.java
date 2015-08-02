@@ -341,11 +341,12 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
             JOptionPane.showMessageDialog(null, "Appointment updated.");
             this.setVisible(false);
         }else{
-            String sql="SELECT TOP 1 ID FROM AppointmentTable ORDER BY ID DESC";
+            //String sql="SELECT TOP 1 * FROM AppointmentTable ORDER BY ID DESC";
+            String sql="SELECT * FROM AppointmentTable ORDER BY ID DESC LIMIT 1";
             try{
                 pst=conn.prepareStatement(sql);
                 rs=pst.executeQuery();
-                if(rs.next()){id=rs.getInt("ID");}
+                if(rs.next()){id=Integer.parseInt(rs.getString("ID"));System.out.println(id+"");}
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -361,9 +362,6 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                     jdc_appointment.getDate(), cb_time_start.getSelectedItem().toString(),cb_time_end.getSelectedItem().toString());
                 insertToTable(Enum_Domestic_Exotic.Domestic.toString(),cb_species.getSelectedItem().toString());
                 JOptionPane.showMessageDialog(null, "Appointment recorded.");
-                
-                Frame_Receptionist_Payout fr=new Frame_Receptionist_Payout(appointment);
-                fr.setVisible(true);
             }else if (cb_exotic.isSelected()){
                 id++;
                 Appointment appointment= new Appointment(id,et_owner_first_name.getText(), et_owner_last_name.getText(), 
@@ -373,9 +371,6 @@ private String[] mon=new String[3],tues=new String[3],wed=new String[3],thurs=ne
                     jdc_appointment.getDate(), cb_time_start.getSelectedItem().toString(),cb_time_end.getSelectedItem().toString());
                 insertToTable(Enum_Domestic_Exotic.Exotic.toString(),cb_species.getSelectedItem().toString());  
                 JOptionPane.showMessageDialog(null, "Appointment recorded.");
-                
-                Frame_Receptionist_Payout fr=new Frame_Receptionist_Payout(appointment);
-                fr.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null,"Error creating appointment.");
             }

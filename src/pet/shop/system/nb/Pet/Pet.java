@@ -38,7 +38,7 @@ public class Pet {
         this.doe=doe;
     }
     
-    public static double getCharge(){return 100;}
+    public static double getCharge(){return 0;}
     
     public String getName() {
         return name;
